@@ -1,79 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/topology/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/lab_tips/</loc>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/1_Fabric_Discovery/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/2_Fabric_Access_Policies/Access_Policies/</loc>
-     <lastmod>2020-05-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/2_Fabric_Access_Policies/Fabric_Policies/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/2_Fabric_Access_Policies/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/3_Tenants/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/4_Host_L2_Connectivity/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/5_External_L3_Connectivity/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/6_Management_Operations/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/7_Advanced_Topics/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/8_Troubleshooting/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/9_Programmability/ACIToolkit/</loc>
-     <lastmod>2020-05-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/9_Programmability/CobraSDK/</loc>
-     <lastmod>2020-05-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/9_Programmability/arya/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/cldeluna/aci4_labguide.git/9_Programmability/overview/</loc>
-     <lastmod>2020-05-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/9_Programmability/postman/</loc>
-     <lastmod>2020-05-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/9_Programmability/python/</loc>
-     <lastmod>2020-05-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/9_Programmability/visore/</loc>
-     <lastmod>2020-05-14</lastmod>
+     <lastmod>2020-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
