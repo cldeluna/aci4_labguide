@@ -11,23 +11,23 @@
         <meta name="description" content="ACI Version 4 Lab Guide">
       
       
-        <link rel="canonical" href="https://github.com/cldeluna/aci4_labguide.git/">
+        <link rel="canonical" href="https://github.com/cldeluna/aci4_labguide.git/02_lab_fabric_access_policies/">
       
       
         <meta name="author" content="Claudia de Luna">
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.1.6">
     
     
       
-        <title>ACI 4 Lab Guide</title>
+        <title>Lab 02 - Fabric & Access Policies - ACI 4 Lab Guide</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.4b9ffd7b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
       
-        <link rel="stylesheet" href="assets/stylesheets/palette.b79bcd20.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.b79bcd20.min.css">
       
       
         
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-cloudmylab-aci-4-lab-guide" class="md-skip">
+        <a href="#step-2-configure-fabric-constructs" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Home
+              Lab 02 - Fabric & Access Policies
             
           </span>
         </div>
@@ -193,20 +193,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
       Home
     </a>
-    
   </li>
 
     
@@ -216,7 +207,7 @@
 
 
   <li class="md-nav__item">
-    <a href="topology/" title="Topology & Design" class="md-nav__link">
+    <a href="../topology/" title="Topology & Design" class="md-nav__link">
       Topology & Design
     </a>
   </li>
@@ -228,7 +219,7 @@
 
 
   <li class="md-nav__item">
-    <a href="lab_access/" title="Getting Around" class="md-nav__link">
+    <a href="../lab_access/" title="Getting Around" class="md-nav__link">
       Getting Around
     </a>
   </li>
@@ -240,7 +231,7 @@
 
 
   <li class="md-nav__item">
-    <a href="01_lab_fabric_discovery/" title="Lab 01 - Fabric Discovery" class="md-nav__link">
+    <a href="../01_lab_fabric_discovery/" title="Lab 01 - Fabric Discovery" class="md-nav__link">
       Lab 01 - Fabric Discovery
     </a>
   </li>
@@ -250,11 +241,49 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="02_lab_fabric_access_policies/" title="Lab 02 - Fabric & Access Policies" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Lab 02 - Fabric & Access Policies
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Lab 02 - Fabric & Access Policies" class="md-nav__link md-nav__link--active">
       Lab 02 - Fabric & Access Policies
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-configure-fabric-constructs" class="md-nav__link">
+    Step 2. Configure Fabric Constructs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -264,7 +293,7 @@
 
 
   <li class="md-nav__item">
-    <a href="03_lab_tenant_constructs/" title="Lab 03 - Tenants" class="md-nav__link">
+    <a href="../03_lab_tenant_constructs/" title="Lab 03 - Tenants" class="md-nav__link">
       Lab 03 - Tenants
     </a>
   </li>
@@ -276,7 +305,7 @@
 
 
   <li class="md-nav__item">
-    <a href="04_lab_layer2_connectivity/" title="Lab 04 - Host & Layer 2 Connectivity" class="md-nav__link">
+    <a href="../04_lab_layer2_connectivity/" title="Lab 04 - Host & Layer 2 Connectivity" class="md-nav__link">
       Lab 04 - Host & Layer 2 Connectivity
     </a>
   </li>
@@ -288,7 +317,7 @@
 
 
   <li class="md-nav__item">
-    <a href="05_lab_vmm_integration/" title="Lab 05 - Integration with VMware ESXi" class="md-nav__link">
+    <a href="../05_lab_vmm_integration/" title="Lab 05 - Integration with VMware ESXi" class="md-nav__link">
       Lab 05 - Integration with VMware ESXi
     </a>
   </li>
@@ -300,7 +329,7 @@
 
 
   <li class="md-nav__item">
-    <a href="06_lab_layer3_connectivity" title="Lab 06 - External Layer 3 Connectivity" class="md-nav__link">
+    <a href="../06_lab_layer3_connectivity" title="Lab 06 - External Layer 3 Connectivity" class="md-nav__link">
       Lab 06 - External Layer 3 Connectivity
     </a>
   </li>
@@ -312,7 +341,7 @@
 
 
   <li class="md-nav__item">
-    <a href="07_lab_operations/" title="Lab 07 - Management & Operations" class="md-nav__link">
+    <a href="../07_lab_operations/" title="Lab 07 - Management & Operations" class="md-nav__link">
       Lab 07 - Management & Operations
     </a>
   </li>
@@ -324,7 +353,7 @@
 
 
   <li class="md-nav__item">
-    <a href="08_lab_fwl_integration/" title="Lab 08 - Firewall Integration" class="md-nav__link">
+    <a href="../08_lab_fwl_integration/" title="Lab 08 - Firewall Integration" class="md-nav__link">
       Lab 08 - Firewall Integration
     </a>
   </li>
@@ -336,7 +365,7 @@
 
 
   <li class="md-nav__item">
-    <a href="09_lab_troubleshooting.md" title="Lab 09 - Troubleshooting" class="md-nav__link">
+    <a href="../09_lab_troubleshooting.md" title="Lab 09 - Troubleshooting" class="md-nav__link">
       Lab 09 - Troubleshooting
     </a>
   </li>
@@ -348,7 +377,7 @@
 
 
   <li class="md-nav__item">
-    <a href="10_lab_programmability/" title="Lab 10 - Programmability" class="md-nav__link">
+    <a href="../10_lab_programmability/" title="Lab 10 - Programmability" class="md-nav__link">
       Lab 10 - Programmability
     </a>
   </li>
@@ -360,7 +389,7 @@
 
 
   <li class="md-nav__item">
-    <a href="11_lab_appcenter/" title="Lab 11 - App Center and ACI Optimize Feature" class="md-nav__link">
+    <a href="../11_lab_appcenter/" title="Lab 11 - App Center and ACI Optimize Feature" class="md-nav__link">
       Lab 11 - App Center and ACI Optimize Feature
     </a>
   </li>
@@ -372,7 +401,7 @@
 
 
   <li class="md-nav__item">
-    <a href="12_lab_techsupport/" title="Lab 12 - Export Tech Support" class="md-nav__link">
+    <a href="../12_lab_techsupport/" title="Lab 12 - Export Tech Support" class="md-nav__link">
       Lab 12 - Export Tech Support
     </a>
   </li>
@@ -392,8 +421,23 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-configure-fabric-constructs" class="md-nav__link">
+    Step 2. Configure Fabric Constructs
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -405,7 +449,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/cldeluna/aci4_labguide.git/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/cldeluna/aci4_labguide.git/edit/master/docs/02_lab_fabric_access_policies.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -413,10 +457,9 @@
                   
                 
                 
-                <h1 id="welcome-to-cloudmylab-aci-4-lab-guide">Welcome to CloudMyLab ACI 4 Lab Guide<a class="headerlink" href="#welcome-to-cloudmylab-aci-4-lab-guide" title="Permanent link">&para;</a></h1>
-<p>This is a companion guide to the CloudMyLab Cisco Data Center CCIE Rental Rack.</p>
-<p>This lab guide will go through a typical ACI deployment workflow.</p>
-<p><img alt="ACI Workflow" src="images/ACI-Buildout-Workflow.png" /></p>
+                  <h1>Lab 02 - Fabric & Access Policies</h1>
+                
+                <h2 id="step-2-configure-fabric-constructs">Step 2. Configure Fabric Constructs<a class="headerlink" href="#step-2-configure-fabric-constructs" title="Permanent link">&para;</a></h2>
                 
               
               
@@ -435,14 +478,28 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
+          <a href="../01_lab_fabric_discovery/" title="Lab 01 - Fabric Discovery" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Lab 01 - Fabric Discovery
+              </div>
+            </div>
+          </a>
         
-          <a href="topology/" title="Topology & Design" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+        
+          <a href="../03_lab_tenant_constructs/" title="Lab 03 - Tenants" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Topology & Design
+                Lab 03 - Tenants
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -504,15 +561,15 @@
       
     </div>
     
-      <script src="assets/javascripts/vendor.a0c4167b.min.js"></script>
-      <script src="assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: ".",
+          base: "..",
           features: [],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.37585f48.min.js"
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

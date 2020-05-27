@@ -8,43 +8,47 @@
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/lab_tips/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/lab_access/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/1_Fabric_Discovery/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/01_lab_fabric_discovery/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/2_Fabric_Access_Policies/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/02_lab_fabric_access_policies/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/3_Tenants/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/03_lab_tenant_constructs/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/4_Host_L2_Connectivity/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/04_lab_layer2_connectivity/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/5_External_L3_Connectivity/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/05_lab_vmm_integration/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/6_Management_Operations/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/07_lab_operations/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/7_Advanced_Topics/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/08_lab_fwl_integration/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/8_Troubleshooting/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/10_lab_programmability/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/cldeluna/aci4_labguide.git/9_Programmability/overview/</loc>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/11_lab_appcenter/</loc>
+     <lastmod>2020-05-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/cldeluna/aci4_labguide.git/12_lab_techsupport/</loc>
      <lastmod>2020-05-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
