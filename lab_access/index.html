@@ -309,8 +309,83 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#physical-interface-reference" class="md-nav__link">
+    Physical Interface Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="Physical Interface Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spine-1" class="md-nav__link">
+    SPINE-1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaf-1" class="md-nav__link">
+    LEAF-1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaf-2" class="md-nav__link">
+    LEAF-2
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-2-and-layer-3-logical-configuration" class="md-nav__link">
+    Layer 2 and Layer 3 Logical Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 2 and Layer 3 Logical Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l3out-ip-and-vlan-details" class="md-nav__link">
+    L3Out IP and Vlan Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-2-details" class="md-nav__link">
+    Layer 2 Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asa-management-details" class="md-nav__link">
+    ASA Management Details
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-get-started-with-aci" class="md-nav__link">
+    Lets get started with ACI!
+  </a>
   
 </li>
       
@@ -423,7 +498,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../09_lab_troubleshooting.md" title="Lab 09 - Troubleshooting" class="md-nav__link">
+    <a href="../09_lab_troubeleshooting/" title="Lab 09 - Troubleshooting" class="md-nav__link">
       Lab 09 - Troubleshooting
     </a>
   </li>
@@ -546,8 +621,83 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#physical-interface-reference" class="md-nav__link">
+    Physical Interface Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="Physical Interface Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spine-1" class="md-nav__link">
+    SPINE-1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaf-1" class="md-nav__link">
+    LEAF-1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaf-2" class="md-nav__link">
+    LEAF-2
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-2-and-layer-3-logical-configuration" class="md-nav__link">
+    Layer 2 and Layer 3 Logical Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 2 and Layer 3 Logical Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l3out-ip-and-vlan-details" class="md-nav__link">
+    L3Out IP and Vlan Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-2-details" class="md-nav__link">
+    Layer 2 Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asa-management-details" class="md-nav__link">
+    ASA Management Details
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-get-started-with-aci" class="md-nav__link">
+    Lets get started with ACI!
+  </a>
   
 </li>
       
@@ -624,13 +774,14 @@
 <p>>3&lt; This lab guide is also available on the Desktop.</p>
 <h2 id="important-please-review-before-continuing-with-the-lab">IMPORTANT:  Please review before continuing with the lab.<a class="headerlink" href="#important-please-review-before-continuing-with-the-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-premise">LAB PREMISE<a class="headerlink" href="#lab-premise" title="Permanent link">&para;</a></h3>
-<p>This Lab has a total of 16 Pods.  Some equipment is shared across all the Pods while other equipment is dedicated to each individual Pod.   A Pod is a group of devices and resources which make an individual Lab usable for each student.</p>
+<p>This Lab has a total of 16 Pods.  Some equipment is shared across all the Pods while other equipment is dedicated to each individual Pod.   A Pod is a group of devices and resources which make an individual Lab usable for each student.  Each Pod is identified by a two digit number.  Throghout your lab guide, if you see ##, replace ## with your Pod number.</p>
 <p>ACI is fundamentally a multi-tenant environment and the lab environment makes full use of that capability.  </p>
 <p>Each Student will create their own Tenant in their Pod and map all the policies, test servers, and equipment dedicated to the Pod to their own tenant.</p>
 <p>For example:  The student assigned to POD11 will create their own POD11 tenant and configure access policies and virtual networking policies to the POD11 tenant.</p>
 <p>A naming standard is particularly important in an ACI Design.  All policies will follow a naming standard based on your POD number. </p>
 <h3 id="common-equipment">Common Equipment<a class="headerlink" href="#common-equipment" title="Permanent link">&para;</a></h3>
 <p>The table below details the shared equipment in the lab.  This equipment will be shared by all students.</p>
+<p>Because these resources are shared, you will see configuration appear that is not your own.  Please do not delete or change any configuration item that is not your own. Please be respectful of the other students and use only your POD resources.</p>
 <p>Table of Common (Shared) Devices and Access Information</p>
 <table>
 <thead>
@@ -789,6 +940,183 @@
     </tr>
 </tbody>
 </table>
+
+<h3 id="physical-interface-reference">Physical Interface Reference<a class="headerlink" href="#physical-interface-reference" title="Permanent link">&para;</a></h3>
+<p>ACI is fundamentally a networking technology and so throughout the labs you will need to configure interfaces. </p>
+<p><img alt="Lab Topology" src="../images/topology.jpg" /></p>
+<p>Use the Physical Interface Table below as a reference.</p>
+<h4 id="spine-1">SPINE-1<a class="headerlink" href="#spine-1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+    <tr>
+        <th>POD#</th>
+        <th>PORT</th>
+        <th>Connected To Device</th>
+        <th>Connected to Device Port</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>ALL PODS</td>
+        <td>e1/1</td>
+        <td>leaf-1</td>
+        <td>e1/49</td>
+    </tr>
+    <tr>
+        <td>ALL PODS</td>
+        <td>e1/2</td>
+        <td>leaf-2</td>
+        <td>e1/49</td>
+    </tr>
+</tbody>
+</table>
+
+<h4 id="leaf-1">LEAF-1<a class="headerlink" href="#leaf-1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+    <tr>
+        <th>POD#</th>
+        <th>PORT</th>
+        <th>Connected To Device</th>
+        <th>Connected to Device Port</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>ALL PODS</td>
+        <td>e1/2</td>
+        <td>APIC</td>
+        <td>VIC1</td>
+    </tr>
+    <tr>
+        <td>POD11</td>
+        <td>e1/3</td>
+        <td>UCS-SERVER-P11</td>
+        <td>VIC1</td>
+    </tr>
+    <tr>
+        <td>POD11</td>
+        <td>e1/11</td>
+        <td>ACI-P2-TOR (Cat 3750)</td>
+        <td>Gi1/0/1</td>
+    </tr>
+    <tr>
+        <td>ALL PODS</td>
+        <td>e1/49</td>
+        <td>SPINE-1</td>
+        <td>e1/1</td>
+    </tr>
+</tbody>
+</table>
+
+<h4 id="leaf-2">LEAF-2<a class="headerlink" href="#leaf-2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+    <tr>
+        <th>POD#</th>
+        <th>PORT</th>
+        <th>Connected To Device</th>
+        <th>Connected to Device Port</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>ALL PODS</td>
+        <td>e1/2</td>
+        <td>APIC</td>
+        <td>VIC2</td>
+    </tr>
+    <tr>
+        <td>POD11</td>
+        <td>e1/3</td>
+        <td>UCS-SERVER-P11</td>
+        <td>VIC2</td>
+    </tr>
+    <tr>
+        <td>POD11</td>
+        <td>e1/11</td>
+        <td>ACI-P2-TOR (Cat 3750)</td>
+        <td>Gi1/0/2</td>
+    </tr>
+    <tr>
+        <td>ALL PODS</td>
+        <td>e1/49</td>
+        <td>SPINE-1</td>
+        <td>e1/2</td>
+    </tr>
+</tbody>
+</table>
+
+<h3 id="layer-2-and-layer-3-logical-configuration">Layer 2 and Layer 3 Logical Configuration<a class="headerlink" href="#layer-2-and-layer-3-logical-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="l3out-ip-and-vlan-details">L3Out IP and Vlan Details<a class="headerlink" href="#l3out-ip-and-vlan-details" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+    <tr>
+        <th>POD Number</th>
+        <th>OSPF AREA</th>
+        <th>LEAF-1 Interface</th>
+        <th>OSPF VLAN</th>
+        <th>SVI on Layer 3 Switch</th>
+        <th>SVI on APIC</th>
+        <th>VLAN Pool Start</th>
+        <th>VLAN Pool End</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>POD11</td>
+        <td>11</td>
+        <td>e1/11</td>
+        <td>1112</td>
+        <td>172.16.11.2/30</td>
+        <td>172.16.11.1/30</td>
+        <td>1110</td>
+        <td>1119</td>
+    </tr>
+</tbody>
+</table>
+
+<h4 id="layer-2-details">Layer 2 Details<a class="headerlink" href="#layer-2-details" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+    <tr>
+        <th>POD Number</th>
+        <th>SVI on External Layer 3 Device</th>
+        <th>LEAF-2 Interface</th>
+        <th>Layer 2 VLANS</th>
+        <th>VLAN Pool Start</th>
+        <th>VLAN Pool End</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>POD11</td>
+        <td>10.0.2.99</td>
+        <td>e1/11</td>
+        <td>112</td>
+        <td>110</td>
+        <td>119</td>
+    </tr>
+</tbody>
+</table>
+
+<h4 id="asa-management-details">ASA Management Details<a class="headerlink" href="#asa-management-details" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+    <tr>
+        <th>POD Number</th>
+        <th>ASA Management IP</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>POD11</td>
+        <td>192.168.10.71</td>
+    </tr>
+</tbody>
+</table>
+
+<h2 id="lets-get-started-with-aci">Lets get started with ACI!<a class="headerlink" href="#lets-get-started-with-aci" title="Permanent link">&para;</a></h2>
                 
               
               
