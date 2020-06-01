@@ -944,6 +944,7 @@ You are accessing the lab after this step has been completed.    </p>
 </ul>
 </li>
 </ul>
+<p>Note: Out of the box (before discoverying and registering the swith in ACI), you can connect to an ACI switch via the console port.  In this state the password for the admin account is blank.</p>
 <h5 id="logical-parameters">Logical Parameters<a class="headerlink" href="#logical-parameters" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
@@ -1231,6 +1232,47 @@ apic1#
 </code></pre></div>
 
 
+<p>Because the APIC serves as the controller for the entire fabric, it is often simpler to log on to the APIC and execute show commands across the fabric.  In some cases, you may want to log in to a particular leaf or spine.</p>
+<table>
+<thead>
+<tr>
+<th>Node ID</th>
+<th>Management IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>192.168.10.101</td>
+</tr>
+<tr>
+<td>102</td>
+<td>192.168.10.102</td>
+</tr>
+<tr>
+<td>103</td>
+<td>192.168.10.103</td>
+</tr>
+</tbody>
+</table>
+<p>Establish an SSH connection to each device in the table above and execute some common show commands.
+You can start with the "show lldp neighbor" command.</p>
+<div class="codehilite"><pre><span></span><code>Spine-1# show lldp nei
+Capability codes:
+  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+Device ID            Local Intf      Hold-time  Capability  Port ID
+LEAF-1                Eth1/1          120        BR          Eth1/49
+LEAF-2                Eth1/2          120        BR          Eth1/49
+Total entries displayed: 2
+Spine-1# 
+Spine-1# sh lldp nei
+sh: lldp: No such file or directory
+Spine-1#
+</code></pre></div>
+
+
+<p>Note that the "sh lldp nei" command failed.  Remember that many of the common abbreviations for commands are not accepted by ACI.</p>
 <h4 id="cli-tips">CLI Tips<a class="headerlink" href="#cli-tips" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Use <ESC> or <TAB><TAB> for command completion</li>
@@ -1246,7 +1288,8 @@ apic1#
 <h2 id="supplemental-information">Supplemental Information<a class="headerlink" href="#supplemental-information" title="Permanent link">&para;</a></h2>
 <h3 id="configuring-out-of-band-management">Configuring Out of Band Management<a class="headerlink" href="#configuring-out-of-band-management" title="Permanent link">&para;</a></h3>
 <p>This is not a lab but you can follow along.</p>
-<p>Configuring out of band management for the fabric is only done once as part of fabric turn up.</p>
+<p>In Step 4 of Exploring the Fabric Inventory, you established an SSH connection to each leaf and spine and executed the "show lldp command".  You were able to do this because the managment interfaces had already benn configured.   This section details how that is done.</p>
+<p>Configuring out of band management for the fabric is only done once as part of fabric turn up.  This activity effectivley configures an IP address on the device management interface so that the device is reachable via SSH.</p>
 <p>Because it is an essential step in the turn up of an ACI fabric, instructions are provided here for completeness but please do not perform these actions on your student fabric.</p>
 <h4 id="tenant-mgmt">Tenant mgmt<a class="headerlink" href="#tenant-mgmt" title="Permanent link">&para;</a></h4>
 <p>Go to the <strong>Tenants* menu and select the </strong>mgmt** tenant from the subment or from the list in the expanded Work Pane.  </p>
@@ -1260,7 +1303,8 @@ apic1#
 <p>In ACI, this is the equivalent of assigning a management IP to the management port of the device.  In ACI you often use the Node ID to identify the device and that is the case here.</p>
 <p>You can enter a range, as shown below with a starting IP in the management subnet and generally the IPs will be assigned sequentially.</p>
 <p><img alt="mgmt Tenant" src="../images/01_mgmt_nodeaddr-range.jpg" /></p>
-<p>While this is handy, there may be unintended consequences or if you have an IP addressing convention (Node ID mapped to last octet is a good practice) the assignments many not adhere to your convention.</p>
+<p>Note: The device hostname, credentials, and other settings are configured on the switch by the APIC when it is first discovered.</p>
+<p>While the range option is handy, there may be unintended consequences or if you have an IP addressing convention (Node ID mapped to last octet is a good practice) the assignments many not adhere to your convention.</p>
 <p>Its a good practice to do the IP assignment individually on each node.  Note the range from and to values are for a single node.</p>
 <p><img alt="mgmt Tenant" src="../images/01_mgmt_nodeaddr-101.jpg" /></p>
 <p>The Lab uses the default OOB (Out of Band) Management EPG, however in a production data center it is a good pracitce to configure and explicit management EPG.</p>
