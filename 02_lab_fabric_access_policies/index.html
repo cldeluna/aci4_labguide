@@ -219,8 +219,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../lab_access/" title="Getting Around" class="md-nav__link">
-      Getting Around
+    <a href="../lab_access/" title="Getting Around the Lab" class="md-nav__link">
+      Getting Around the Lab
     </a>
   </li>
 
@@ -281,6 +281,46 @@
   <a href="#fabric-configuration" class="md-nav__link">
     Fabric Configuration
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementing-cisco-aci-fabric-connectivity" class="md-nav__link">
+    Implementing Cisco ACI Fabric Connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementing Cisco ACI Fabric Connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fabric-policies" class="md-nav__link">
+    Fabric Policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-policies" class="md-nav__link">
+    Access Policies
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aci-object-construct-relationship-overview" class="md-nav__link">
+    ACI Object (Construct) Relationship Overview
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -443,6 +483,46 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#implementing-cisco-aci-fabric-connectivity" class="md-nav__link">
+    Implementing Cisco ACI Fabric Connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementing Cisco ACI Fabric Connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fabric-policies" class="md-nav__link">
+    Fabric Policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-policies" class="md-nav__link">
+    Access Policies
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aci-object-construct-relationship-overview" class="md-nav__link">
+    ACI Object (Construct) Relationship Overview
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -465,7 +545,74 @@
                 
                 <h1 id="lab-02-configure-fabric-access-constructs">Lab 02 - Configure Fabric &amp; Access Constructs<a class="headerlink" href="#lab-02-configure-fabric-access-constructs" title="Permanent link">&para;</a></h1>
 <h2 id="fabric-configuration">Fabric Configuration<a class="headerlink" href="#fabric-configuration" title="Permanent link">&para;</a></h2>
-<p>Configuration in ACI is based on policies. </p>
+<p>Configuration in ACI is largely based on policies which abstract the characteristics of traditional network connectivity.  </p>
+<p>Consider the diagram below and the steps you normally take to configure a layer 2 trunk interface like the one shows on LEAF-2 e1/11.</p>
+<p>In the classical Ethernet environment this configuration is done on LEAF-2 itself so the switch is understood.  The configuration is performed on the interface itself, e1/11 in this case, so that is understood.</p>
+<p>Because these objects are abstract and all of the configuration is performed by the APIC controller, each of those "undersood" items are configued discreetly via policy and then put together to achieve the desired functionality.   We will go through that workflow in this lab.</p>
+<p>Initially it may seem  like "extra" work to do this but once you start taking advantage of the re-usability of these policy objects and see the ease of scalability, the "extra" work will be well worth it.</p>
+<p><img alt="Lab Topology" src="../images/lab_physical_topology.jpg" /></p>
+<h2 id="implementing-cisco-aci-fabric-connectivity">Implementing Cisco ACI Fabric Connectivity<a class="headerlink" href="#implementing-cisco-aci-fabric-connectivity" title="Permanent link">&para;</a></h2>
+<p>The Fabric menu has three submenu items.  You should be familiar with the Inventory submenu from Lab 01.</p>
+<p>The other two Submenu items configure the fabric itself and the physical connectivity.</p>
+<p>Configuring ACI connectivity is generally done in two steps:
+1. Configure the Physical Layer Characteristics
+2. Configure the Logical Layer Characteristics</p>
+<h3 id="fabric-policies">Fabric Policies<a class="headerlink" href="#fabric-policies" title="Permanent link">&para;</a></h3>
+<p>Fabric policies control the configuration of the fabric itself.  The most common activity in this section is to define Policy Groups such as the fabrics:
+- Data and Time policy (NTP)
+- Management Access policy
+- SNMP Policy (for the fabric)
+- BGP Route Reflector Policy</p>
+<p><img alt="Lab Topology" src="../images/02_fabric_fabric_pols.jpg" /></p>
+<p>The BGP Route Reflect policy one of the first fabric configuration items which needs to be completed for a functioning fabric.  In a production fabric, it is best practice to make 2 or 4 spines route reflectors.</p>
+<p>Note: In recent versions of ACI configuring the route reflectors is done from <strong>System &gt; System Settings &gt; BGP Route Reflector</strong> </p>
+<p><img alt="Lab Topology" src="../images/02_system_settings_rr.jpg" /></p>
+<p>This activity is only done once and the route reflector has already been configured in the the lab for all students.</p>
+<p><img alt="Lab Topology" src="../images/02_system_settings_rr_configured.jpg" /></p>
+<h3 id="access-policies">Access Policies<a class="headerlink" href="#access-policies" title="Permanent link">&para;</a></h3>
+<p>Unlike the Fabric Policies which are often configured at turn up and then largely left alone, Access Policies are used often to configure new vlans, domains, switches, and interfaces.</p>
+<p>Access Policies are the "configuration bits" that you will fashion together to obtain the functionality you need for your fabric.</p>
+<p>You build Fabric Access Policies with multiple configuration objects:</p>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Description &amp; Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pool</td>
+<td></td>
+</tr>
+<tr>
+<td>Physical Domain</td>
+<td></td>
+</tr>
+<tr>
+<td>Attachable Access Entity Profile (AAEP)</td>
+<td></td>
+</tr>
+<tr>
+<td>Interface Policy</td>
+<td></td>
+</tr>
+<tr>
+<td>Interface Policy Group</td>
+<td></td>
+</tr>
+<tr>
+<td>Interface Profile</td>
+<td></td>
+</tr>
+<tr>
+<td>Switch Profile</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="aci-object-construct-relationship-overview">ACI Object (Construct) Relationship Overview<a class="headerlink" href="#aci-object-construct-relationship-overview" title="Permanent link">&para;</a></h4>
+<p><img alt="Lab Topology" src="../images/02_fabric_access_relationships.jpg" /></p>
                 
               
               
