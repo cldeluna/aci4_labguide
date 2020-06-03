@@ -373,12 +373,17 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#configuring-interface-policies" class="md-nav__link">
-    Configuring Interface Policies
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-interface-policies-and-profiles" class="md-nav__link">
+    Configuring Interface Policies and Profiles
   </a>
   
-    <nav class="md-nav" aria-label="Configuring Interface Policies">
+    <nav class="md-nav" aria-label="Configuring Interface Policies and Profiles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -427,11 +432,6 @@
   <a href="#check-in" class="md-nav__link">
     Check in
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -688,12 +688,17 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#configuring-interface-policies" class="md-nav__link">
-    Configuring Interface Policies
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-interface-policies-and-profiles" class="md-nav__link">
+    Configuring Interface Policies and Profiles
   </a>
   
-    <nav class="md-nav" aria-label="Configuring Interface Policies">
+    <nav class="md-nav" aria-label="Configuring Interface Policies and Profiles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -749,11 +754,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
     </ul>
   
@@ -777,9 +777,8 @@
                 
                 <h1 id="lab-02-configure-fabric-access-constructs">Lab 02 - Configure Fabric &amp; Access Constructs<a class="headerlink" href="#lab-02-configure-fabric-access-constructs" title="Permanent link">&para;</a></h1>
 <h2 id="lab-goals">Lab Goals<a class="headerlink" href="#lab-goals" title="Permanent link">&para;</a></h2>
-<p>In this lab we will review how to configure basic fabric functionality. These are configurations steps which are peformed at the fabric level and which have already been configured but the guide will detail the steps required.</p>
-<p>We will then configure a 1Gig LACP port channel down to the "mock-core01" switch.</p>
-<p><img alt="Lab Topology" src="../images/02_L2_LACP_Po.jpg" /></p>
+<p>In this lab we will review how to configure basic fabric functionality via Fabric Policies. These are configurations steps which are peformed at the fabric level and which have already been configured but the guide will detail the steps required.</p>
+<p>We will then look at Access Policies which configure the physical (vs logical) aspects of fabric interfaces which connect the leafs (and spines) to compute, storage, appliances, and other non-ACI network devices.</p>
 <h2 id="fabric-configuration">Fabric Configuration<a class="headerlink" href="#fabric-configuration" title="Permanent link">&para;</a></h2>
 <p>Configuration in ACI is largely based on policies which abstract the characteristics of traditional network connectivity.  </p>
 <p>Consider the diagram below and the steps you normally take to configure a layer 2 trunk interface like the one shows on LEAF-2 e1/11.</p>
@@ -815,42 +814,43 @@
 <p>You build Fabric Access Policies with multiple configuration objects:</p>
 <table>
 <thead>
-<tr>
-<th>Object</th>
-<th>Description &amp; Use</th>
-</tr>
+    <tr>
+        <th>Object</th>
+        <th>Description &amp; Use</th>
+    </tr>
 </thead>
 <tbody>
-<tr>
-<td>Pool</td>
-<td></td>
-</tr>
-<tr>
-<td>Physical Domain</td>
-<td></td>
-</tr>
-<tr>
-<td>Attachable Access Entity Profile (AAEP)</td>
-<td></td>
-</tr>
-<tr>
-<td>Interface Policy</td>
-<td></td>
-</tr>
-<tr>
-<td>Interface Policy Group</td>
-<td></td>
-</tr>
-<tr>
-<td>Interface Profile</td>
-<td></td>
-</tr>
-<tr>
-<td>Switch Profile</td>
-<td></td>
-</tr>
+    <tr>
+        <td>Pool</td>
+        <td>Individual or a Range of VLANs</td>
+    </tr>
+    <tr>
+        <td>Physical Domain</td>
+        <td>A logical construct tying a vlan pool object to an AAEP</td>
+    </tr>
+    <tr>
+        <td>Attachable Access Entity Profile (AAEP)</td>
+        <td>An ACI object which groups physical and virtual domains for scalability.</td>
+    </tr>
+    <tr>
+        <td>Interface Policy</td>
+        <td>Describes an individual behavior.&lt;br&gt;For example: CDP enabled, 10Gig Interface, 1Gig Interface</td>
+    </tr>
+    <tr>
+        <td>Interface Policy Group</td>
+        <td>Bundles interface policies together for a specific interface behavior and ties that to an AAEP which now adds valid vlans on the interface</td>
+    </tr>
+    <tr>
+        <td>Interface Profile</td>
+        <td>Ties an Interface Policy Group to a specific interface number</td>
+    </tr>
+    <tr>
+        <td>Switch Profile</td>
+        <td>Defines a fabric switch to which Interface Profiles can be associated</td>
+    </tr>
 </tbody>
 </table>
+
 <h4 id="aci-object-construct-relationship-overview">ACI Object (Construct) Relationship Overview<a class="headerlink" href="#aci-object-construct-relationship-overview" title="Permanent link">&para;</a></h4>
 <p>It is vital that you understand the relationship between objects.</p>
 <p><img alt="Access Policy  Relationships" src="../images/02_fabric_access_relationships.jpg" /></p>
@@ -897,10 +897,20 @@
 <p>Defining switch "objects" which can then have policies applied to them is part of the inital fabric configuration and only performed once per switch and switch pair. </p>
 <p>Navigate to <strong>Fabric &gt; Access Policies &gt; Switches &gt; Leaf Switches</strong>.</p>
 <p>Notice the options in the Navigation Pane:
-- Profiles &lt;-- Leaf Profiles
+- Profiles &lt;-- Leaf Profiles - this is where the switch "objects" are configured
 - Policy Groups &lt;-- 
 - Overrides</p>
-<h3 id="configuring-interface-policies">Configuring Interface Policies<a class="headerlink" href="#configuring-interface-policies" title="Permanent link">&para;</a></h3>
+<p>Navigate to <strong>Fabric &gt; Access Policies &gt; Switches &gt; Leaf Switches &gt; Profiles</strong> and expand the Profiles option.</p>
+<p><img alt="Fabric Access Switch Profiles" src="../images/02_access_switch_profiles.jpg" /></p>
+<p>You will see three switch "objects" representing
+- LEAF-1
+- LEAF-2
+- LEAF-1 and LEAF-2 Pair</p>
+<p>When you want to configure a single interface on a specific leaf you will use the specific individual switch object.</p>
+<p>In our first example, we will configure a single access port on LEAF-2.</p>
+<p>Since the switches are abstracted, it is also possible to define an object that represents both switches.  When configuring a vPC or two access ports using the same port on each specific switch, this pair object can be used. </p>
+<p>In our second example we will associate the same port, e1/11, to the LEAFS_102_103_LeafProf Leaf Profile.  In one step or associate we have configured port e1/11 on both switches.  In this exercise port e1/11 will be configured as a vPC.</p>
+<h2 id="configuring-interface-policies-and-profiles">Configuring Interface Policies and Profiles<a class="headerlink" href="#configuring-interface-policies-and-profiles" title="Permanent link">&para;</a></h2>
 <p>Keeping in mind the full connectivity workflow of:</p>
 <ol>
 <li>Configure the Physical Layer Characteristics &lt;-- You are here</li>
@@ -1002,7 +1012,7 @@
 </table>
 
 <h5 id="step-5-creating-interface-policy-groups-access-interface">Step 5 - Creating Interface Policy Groups - Access Interface<a class="headerlink" href="#step-5-creating-interface-policy-groups-access-interface" title="Permanent link">&para;</a></h5>
-<p>Lets take these individual behaviors and bundle them into a group of behaviors that can then be associated with an interface.</p>
+<p>Lets take these individual behaviors defined in each <strong>Interface Policy</strong> and bundle them into a group of behaviors that can then be associated with an interface.  This bundle of configuration items defining the port behavior is called an <strong>Interface Policy Group</strong>.</p>
 <p>Lets define the Policy Group that would define a 1Gig interface with CDP enabled, LLD disabled, and a static port channel.</p>
 <h5 id="step-6-creating-interface-policy-groups-access-interface">Step 6 - Creating Interface Policy Groups - Access Interface<a class="headerlink" href="#step-6-creating-interface-policy-groups-access-interface" title="Permanent link">&para;</a></h5>
 <h5 id="check-in">Check in<a class="headerlink" href="#check-in" title="Permanent link">&para;</a></h5>
@@ -1016,6 +1026,8 @@
 </ul>
 <p>We have also defined two </p>
 <p>It important to note that these "behaviors" are not associated with an interface or even a switch.</p>
+<p>We will then configure a 1Gig LACP port channel down to the "mock-core01" switch.</p>
+<p>![Lab Topology](images/02_L2_LACP_Po.jpg</p>
                 
               
               
