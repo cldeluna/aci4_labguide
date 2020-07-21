@@ -278,6 +278,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lab-goals" class="md-nav__link">
     Lab Goals
   </a>
@@ -593,6 +600,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lab-goals" class="md-nav__link">
     Lab Goals
   </a>
@@ -776,9 +790,12 @@
                 
                 
                 <h1 id="lab-02-configure-fabric-access-constructs">Lab 02 - Configure Fabric &amp; Access Constructs<a class="headerlink" href="#lab-02-configure-fabric-access-constructs" title="Permanent link">&para;</a></h1>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>This lab represents the implementation of networking at the physical layer across the entire fabric as well as on a switch and interface or port level.</p>
+<p>Typically in an ACI fabric, the Fabric Policies are configured during initial fabric turn up and then largely left alone.   The Access Policies represetn that "day to day" configuration of the fabric as they define how the fabric connects to hosts and other non-ACI network devices.  You an think of Access Policies as the hardware configuration of interfaces.  The logical portion of the configuration is implemented when Access Policies are associated with EPGs and "Vlans" or Encapsulations.</p>
 <h2 id="lab-goals">Lab Goals<a class="headerlink" href="#lab-goals" title="Permanent link">&para;</a></h2>
-<p>In this lab we will review how to configure basic fabric functionality via Fabric Policies. These are configurations steps which are peformed at the fabric level and which have already been configured but the guide will detail the steps required.</p>
-<p>We will then look at Access Policies which configure the physical (vs logical) aspects of fabric interfaces which connect the leafs (and spines) to compute, storage, appliances, and other non-ACI network devices.</p>
+<p>In this lab we will review how to configure basic fabric functionality via <em>Fabric Policies</em>. These are configurations steps which are peformed at the fabric level and which have already been configured for the lab but the guide will detail the steps required to complete this step.</p>
+<p>We will then look at <em>Access Policies</em> which configure the physical (vs logical) aspects of fabric interfaces which connect the leafs (and spines) to compute, storage, appliances, and other non-ACI network devices.</p>
 <h2 id="fabric-configuration">Fabric Configuration<a class="headerlink" href="#fabric-configuration" title="Permanent link">&para;</a></h2>
 <p>Configuration in ACI is largely based on policies which abstract the characteristics of traditional network connectivity.  </p>
 <p>Consider the diagram below and the steps you normally take to configure a layer 2 trunk interface like the one shows on LEAF-2 e1/11.</p>
@@ -1025,9 +1042,9 @@
 <li>Active LAC Port Channel</li>
 </ul>
 <p>We have also defined two </p>
-<p>It important to note that these "behaviors" are not associated with an interface or even a switch.</p>
+<p>It important to note that these "behaviors" are not associated with an interface or even a switch at this point. Think of them as "raw ingredients" that are ready for use in order to implement a specific functionality.</p>
 <p>We will then configure a 1Gig LACP port channel down to the "mock-core01" switch.</p>
-<p>![Lab Topology](images/02_L2_LACP_Po.jpg</p>
+<p><img alt="Lab Topology" src="../images/02_L2_LACP_Po.jpg" /></p>
                 
               
               
