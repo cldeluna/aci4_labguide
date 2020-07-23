@@ -682,7 +682,7 @@ All other values remain unchanged and at their default settings.</p>
 <h4 id="step-2-create-a-bridge-domain-and-subnets">Step 2: Create a Bridge Domain and Subnets<a class="headerlink" href="#step-2-create-a-bridge-domain-and-subnets" title="Permanent link">&para;</a></h4>
 <p>In traditional networking a Vlan inherently defines a broadcast domain, an encapsulation, and optionally a Layer 3 subnet.  We don't typically think of all of those items as separate functions but in ACI you must.  In its basic form, a Bridge Domain defines a broadcast domain as well as flooding behavior (we don't call this out specifically in traditional network because we don't have any other options, but in ACI we do).  ACI can optimize flooding behavior and reduce broadcasts and so a Bridge Domain allows you to define how you want flooding to behave for a particular Bridge Domain (BD).   It is also common to define a subnet within the Bridge Domain thereby creating the foundation for a Layer 3 "Vlan".  Notice that you don't define the encapsulation within the Bridge Domain. That takes place within an EPG either statically or dynamically depending on the need.  </p>
 <p>A Bridge Domain can have multiple subnets and contains settings which instantiate the subnet's gateway on the ACI Fabric.</p>
-<p>Navigate to <strong>Networking &gt; Bridge Domains </strong> and right click on the Bridge Domain Folder icon.  Select <strong>Create Bridge Domain</strong> and the Create Bridge Domain dialog will appear.</p>
+<p>Navigate to <strong>Tenants &gt; PODXX_Tenant &gt; Networking &gt; Bridge Domains </strong> and right click on the Bridge Domain Folder icon.  Select <strong>Create Bridge Domain</strong> and the Create Bridge Domain dialog will appear.</p>
 <p><img alt="03_BD_CreateDialog" src="../images/03_BD_CreateDialog.jpg" /></p>
 <p><img alt="03_BD_CreateDialog2_Forwarding" src="../images/03_BD_CreateDialog2_Forwarding.jpg" /></p>
 <p><img alt="03_BD_CreateDialog3_Forwarding" src="../images/03_BD_CreateDialog3_Forwarding.jpg" /></p>
@@ -694,6 +694,24 @@ All other values remain unchanged and at their default settings.</p>
 <h4 id="step-3-create-an-application-profile-and-epgs">Step 3: Create an Application Profile and EPGs<a class="headerlink" href="#step-3-create-an-application-profile-and-epgs" title="Permanent link">&para;</a></h4>
 <p>An Application Profile is on organizational or grouping construct only.  It is a container or folder for EPGs and their associations.</p>
 <p>An EndPoint Group (EPG) is a container for endpoints that share some commonality.  In many cases, these are endpoints that share a common security profile.  This is an important distinction to make because Contracts (think of these as ACLs which act on EPGs rather than subnets and IP addresses) are applied to EPGs.</p>
+<p>Navigate to <strong>Tenants &gt; PODXX_Tenant &gt; Application Profiles </strong> and right click on the Application Profiles Folder icon.  </p>
+<p><img alt="03_AP_CreateAppProfile" src="../images/03_AP_CreateAppProfile.jpg" /></p>
+<p>Select <strong>Create Application Profile</strong> and the Create Application Profile dialog will appear.  Enter the Application Profile Name in the <strong>Name:</strong> field and click <strong>Submit</strong>.</p>
+<p>You now have a container for your EPGs and their associated constructs.</p>
+<p>From here, expand the Application Profile folder by clicking on the "&gt;" symbol.</p>
+<p><img alt="03_AP_CreateAppProfileDialog" src="../images/03_AP_AppProfileExpand.jpg" /></p>
+<p>Expand your Application Profile <strong><em>Tiered_AppProfile</em></strong> and right click on the <strong>Application EPG</strong>s folder icon for the "<strong>Create Application EPG</strong>" option.</p>
+<p><img alt="03_EPG_CreateEPG" src="../images/03_EPG_CreateEPG.jpg" /></p>
+<p>Remember the Tenant portion of the ACI Management Information Tree (MIT).  Notice that an EPG must be associated to </p>
+<ul>
+<li>one Application Profile (which is associated to one Tenant)</li>
+<li>one Bridge Domain (which is associated to one VRF)</li>
+</ul>
+<p>At a minimum those objects must be defined in order to create an EPG.  Other EPG attributes such as Contracts and VM Domain profiles can be configured at a later time.</p>
+<p><img alt="Tenant Objects" src="https://www.cisco.com/c/dam/en/us/td/i/300001-400000/340001-350000/348001-349000/348505.jpg" /></p>
+<p><img alt="03_EPG_CreateEPGDialog" src="../images/03_EPG_CreateEPGDialog.jpg" /></p>
+<p>Enter the EPG name in the <strong>Name:</strong> field.  Select the Bridge Domain in the Bridge Domain: field and click <strong>Submit</strong>.</p>
+<p><img alt="03_EPG_CreateEPGDialogCompleted" src="../images/03_EPG_CreateEPGDialogCompleted.jpg" /></p>
 <h4 id="step-4-create-filters-and-contracts">Step 4: Create Filters and Contracts<a class="headerlink" href="#step-4-create-filters-and-contracts" title="Permanent link">&para;</a></h4>
 <h4 id="step-5-apply-contracts-to-epgs">Step 5: Apply Contracts to EPGs<a class="headerlink" href="#step-5-apply-contracts-to-epgs" title="Permanent link">&para;</a></h4>
 <h2 id="check-in">Check in<a class="headerlink" href="#check-in" title="Permanent link">&para;</a></h2>
