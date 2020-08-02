@@ -44,3 +44,19 @@ markdown_extensions:
       guess_lang: false
   - toc:
       permalink: true
+
+
+# Navigation
+nav:
+  - Home: index.md
+  - Topology & Design: topology.md
+  - Getting Around: lab_tips.md
+  - Step 1 - Fabric Discovery : 1_Fabric_Discovery/overview.md
+  - Step 2 - Fabric & Access Policies: 2_Fabric_Access_Policies/overview.md
+  - Step 3 - Tenants: 3_Tenants/overview.md
+  - Step 4 - Host & Layer 2 Connectivity: 4_Host_L2_Connectivity/overview.md
+  - Step 5 - External Layer 3 Connectivity: 5_External_L3_Connectivity/overview.md
+  - Step 6 - Management & Operations: 6_Management_Operations/overview.md
+  - Step 7 - Advanced Topics: 7_Advanced_Topics/overview.md
+  - Step 8 - Troubleshooting: 8_Troubleshooting/overview.md
+  - Step 9 - Programmability: 9_Programmability/overview.md

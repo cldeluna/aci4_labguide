@@ -7,4 +7,6 @@ Once the Fabric has been discovered and configured and the Tenant design applied
 - Layer 2 Connectivity to a Legacy Network
 - Layer 2 Virtual Port Channel
 
-![Lab Topology](./images/lab_topology.jpg)
+A note about Border Leafs.   This designation is common in an ACI fabric along with "Compute Leafs" and even "Storage Leafs".  It important to know that this designation is merely an convention to identify the leaf pair that hosts all external connectivity external to the fabric (Border Leafs) or to identify the leaf pairs that are used for host connectivity (Compute Leafs). 
+
+![Lab Topology](images/lab_physical_topology.jpg)
