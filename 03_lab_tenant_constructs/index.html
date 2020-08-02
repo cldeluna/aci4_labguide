@@ -333,6 +333,74 @@
     Step 4: Create Filters and Contracts
   </a>
   
+    <nav class="md-nav" aria-label="Step 4: Create Filters and Contracts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-table" class="md-nav__link">
+    Filter Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-41-basic-filter-for-ping-icmp-and-ssh" class="md-nav__link">
+    Step 4.1 Basic Filter for Ping (ICMP) and SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-42-http-filter-for-http" class="md-nav__link">
+    Step 4.2 HTTP Filter for HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-43-ftp-filter-for-ftp" class="md-nav__link">
+    Step 4.3 FTP Filter for FTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-44-contracts" class="md-nav__link">
+    Step 4.4 Contracts
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4.4 Contracts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contract-table" class="md-nav__link">
+    Contract Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-441-web-access-contract" class="md-nav__link">
+    Step 4.4.1 Web Access Contract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-442-file-access-contract" class="md-nav__link">
+    Step 4.4.2 File Access Contract
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -540,6 +608,74 @@
     Step 4: Create Filters and Contracts
   </a>
   
+    <nav class="md-nav" aria-label="Step 4: Create Filters and Contracts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-table" class="md-nav__link">
+    Filter Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-41-basic-filter-for-ping-icmp-and-ssh" class="md-nav__link">
+    Step 4.1 Basic Filter for Ping (ICMP) and SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-42-http-filter-for-http" class="md-nav__link">
+    Step 4.2 HTTP Filter for HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-43-ftp-filter-for-ftp" class="md-nav__link">
+    Step 4.3 FTP Filter for FTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-44-contracts" class="md-nav__link">
+    Step 4.4 Contracts
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4.4 Contracts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contract-table" class="md-nav__link">
+    Contract Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-441-web-access-contract" class="md-nav__link">
+    Step 4.4.1 Web Access Contract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-442-file-access-contract" class="md-nav__link">
+    Step 4.4.2 File Access Contract
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -655,7 +791,7 @@
 <li>## = Your Pod Number.  For example, if your Pod number is 11, then replace ## with 11 (POD11_Tenant)</li>
 </ul>
 <p>It is important to think about how to consistently name your constructs.  You have some flexibility in the lab but please keep in mind that the lab is shared and so you should always make sure your constructs can be associated to your tenant and your work.  </p>
-<h5 id="step-1-create-a-tenant-and-vrf">Step 1 - Create a Tenant and VRF<a class="headerlink" href="#step-1-create-a-tenant-and-vrf" title="Permanent link">&para;</a></h5>
+<h4 id="step-1-create-a-tenant-and-vrf">Step 1 - Create a Tenant and VRF<a class="headerlink" href="#step-1-create-a-tenant-and-vrf" title="Permanent link">&para;</a></h4>
 <p>A Tenant in ACI represents a management domain.    Common tenants in actual deployments include tenants such as:</p>
 <ul>
 <li>Production</li>
@@ -682,7 +818,7 @@ All other values remain unchanged and at their default settings.</p>
 <h4 id="step-2-create-a-bridge-domain-and-subnets">Step 2: Create a Bridge Domain and Subnets<a class="headerlink" href="#step-2-create-a-bridge-domain-and-subnets" title="Permanent link">&para;</a></h4>
 <p>In traditional networking a Vlan inherently defines a broadcast domain, an encapsulation, and optionally a Layer 3 subnet.  We don't typically think of all of those items as separate functions but in ACI you must.  In its basic form, a Bridge Domain defines a broadcast domain as well as flooding behavior (we don't call this out specifically in traditional network because we don't have any other options, but in ACI we do).  ACI can optimize flooding behavior and reduce broadcasts and so a Bridge Domain allows you to define how you want flooding to behave for a particular Bridge Domain (BD).   It is also common to define a subnet within the Bridge Domain thereby creating the foundation for a Layer 3 "Vlan".  Notice that you don't define the encapsulation within the Bridge Domain. That takes place within an EPG either statically or dynamically depending on the need.  </p>
 <p>A Bridge Domain can have multiple subnets and contains settings which instantiate the subnet's gateway on the ACI Fabric.</p>
-<p>Navigate to <strong>Tenants &gt; PODXX_Tenant &gt; Networking &gt; Bridge Domains </strong> and right click on the Bridge Domain Folder icon.  Select <strong>Create Bridge Domain</strong> and the Create Bridge Domain dialog will appear.</p>
+<p>Navigate to <strong>Tenants &gt; PODXX_Tenant &gt; Networking &gt; Bridge Domains </strong> and right click on the <strong>Bridge Domain Folder</strong> icon.  Select <strong>Create Bridge Domain</strong> and the Create Bridge Domain dialog will appear.</p>
 <p><img alt="03_BD_CreateDialog" src="../images/03_BD_CreateDialog.jpg" /></p>
 <p><img alt="03_BD_CreateDialog2_Forwarding" src="../images/03_BD_CreateDialog2_Forwarding.jpg" /></p>
 <p><img alt="03_BD_CreateDialog3_Forwarding" src="../images/03_BD_CreateDialog3_Forwarding.jpg" /></p>
@@ -710,11 +846,204 @@ All other values remain unchanged and at their default settings.</p>
 <p>At a minimum those objects must be defined in order to create an EPG.  Other EPG attributes such as Contracts and VM Domain profiles can be configured at a later time.</p>
 <p><img alt="Tenant Objects" src="https://www.cisco.com/c/dam/en/us/td/i/300001-400000/340001-350000/348001-349000/348505.jpg" /></p>
 <p><img alt="03_EPG_CreateEPGDialog" src="../images/03_EPG_CreateEPGDialog.jpg" /></p>
-<p>Enter the EPG name in the <strong>Name:</strong> field.  Select the Bridge Domain in the Bridge Domain: field and click <strong>Submit</strong>.</p>
+<p>Enter the EPG name in the <strong>Name:</strong> field.  Select the Bridge Domain in the Bridge Domain: field and click <strong>Finish</strong>.</p>
+<p>Accept all the default values.</p>
 <p><img alt="03_EPG_CreateEPGDialogCompleted" src="../images/03_EPG_CreateEPGDialogCompleted.jpg" /></p>
+<p>Using this same process, create two additional EPGs within this Application Profile, mapped to your PODXX_BD Bridge Domain.</p>
+<ul>
+<li>App</li>
+<li>DB</li>
+</ul>
+<p><img alt="03_AP_with_all_EPGs" src="../images/03_AP_with_all_EPGs.jpg" /></p>
+<p><img alt="03_AP_Topology" src="../images/03_AP_Topology.jpg" /></p>
 <h4 id="step-4-create-filters-and-contracts">Step 4: Create Filters and Contracts<a class="headerlink" href="#step-4-create-filters-and-contracts" title="Permanent link">&para;</a></h4>
+<p>Contracts, and how they behave, make ACI one of the easiest fabrics to secure.  Think of them as Access Control Lists which can be applied anywhere across the fabric (across all of your top of rack Leaf switches) and which are independent of a vlan or IP Subnet/Address.</p>
+<p>A Cisco ACI filter is a TCP/IP header field, such as a Layer 3 protocol type or Layer 4 ports, that are used to allow inbound or outbound communications between EPGs.</p>
+<p>A Cisco ACI contract defines the rules that specify what and how communication in a network is allowed. In Cisco ACI, contracts specify how communications between EPGs take place. Contract scope can be limited to the EPGs in an application profile, a tenant, a VRF, or the entire fabric.  It is important to understand the impact scope can have on access.</p>
+<p>Contracts are wholly logical constructs and so there is no Physical Layer configuration.</p>
+<p>Contracts defined in the common tenant can be used across any Tenant like other constructs defined in the common tenant.</p>
+<p>You will configure three filters and use them as building blocks for defining contracts between EPGs.</p>
+<ol>
+<li>Basic Filter</li>
+<li>Allow ICMP and SSH</li>
+<li>HTTP Filter</li>
+<li>Allow HTTP </li>
+<li>FTP Filter</li>
+<li>Allow FTP</li>
+</ol>
+<p>A few naming Tips:</p>
+<p>Start the name with protocol/port as that is what typically appears to reduce ambiguity</p>
+<p>If you are going to do Taboo (not recommended) or Deny contracts, consider adding the action to the Subject name. </p>
+<p>For example: TCP_22_Permit_SSH_Subject. If you will not use these then establish the convention that all Subjects are "Permit".Consider adding Source or Destination (For example: TCP_9004_DST_Entry)</p>
+<p>Example Object Names:</p>
+<ul>
+<li>TCP_9004_Filter</li>
+<li>TCP_9004_Entry</li>
+<li>PKI_BIDi_Contract</li>
+<li>TCP_22_SSH_Subject</li>
+</ul>
+<p>For the lab we will use a simplified naming convention.</p>
+<h6 id="filter-table">Filter Table<a class="headerlink" href="#filter-table" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Filter Name</th>
+<th>Entry Name</th>
+<th>EtherType</th>
+<th>IP Protocol</th>
+<th>Source Port_Range<br />From - To</th>
+<th>Destination Port_Range<br />From - To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BASIC-POD##</td>
+<td>ICMP</td>
+<td>IP</td>
+<td>icmp</td>
+<td>Leave blank</td>
+<td>Leave blank</td>
+</tr>
+<tr>
+<td>BASIC-POD## (second entry)</td>
+<td>SSH</td>
+<td>IP</td>
+<td>tcp</td>
+<td>1024 - 65535</td>
+<td>22 - 22</td>
+</tr>
+<tr>
+<td>HTTP-POD##</td>
+<td>HTTP</td>
+<td>IP</td>
+<td>tcp</td>
+<td>1024 - 65535</td>
+<td>80 - 80 (http - http also works)</td>
+</tr>
+<tr>
+<td>FTP-POD##</td>
+<td>FTP</td>
+<td>IP</td>
+<td>tcp</td>
+<td>1024 - 65535</td>
+<td>21 - 21</td>
+</tr>
+</tbody>
+</table>
+<h5 id="step-41-basic-filter-for-ping-icmp-and-ssh">Step 4.1 Basic Filter for Ping (ICMP) and SSH<a class="headerlink" href="#step-41-basic-filter-for-ping-icmp-and-ssh" title="Permanent link">&para;</a></h5>
+<p>Within your Tenant, navigate to  <strong>Contracts &gt; Filters</strong> </p>
+<p>Right-click <strong>Filters</strong> and choose <strong>Create Filters</strong></p>
+<p><img alt="03_04-1-FiltersCreate" src="../images/03_04-1-FiltersCreate.jpg" /></p>
+<ol>
+<li>Create a filter named <strong>BASIC-POD##</strong></li>
+<li>Click the plus sign (<strong>+</strong>) to add an Entry (again, think of this as a single Access List Entry).</li>
+<li>Complete the first entry which you will name ICMP per the table above</li>
+<li>Click the <strong>Update</strong> button for your entry row.  </li>
+</ol>
+<p><img alt="03_04-1-FiltersCreateDialog" src="../images/03_04-1-FiltersCreateDialog.jpg" /></p>
+<p>This filter will have two entries, ICMP and SSH</p>
+<p>Click the plus sign again to add the second SSH entry.</p>
+<p>Click <strong>Update</strong> and <strong>Submit</strong></p>
+<p><img alt="03_04-1-FiltersCreateDialog2ndEntry" src="../images/03_04-1-FiltersCreateDialog2ndEntry.jpg" /></p>
+<h5 id="step-42-http-filter-for-http">Step 4.2 HTTP Filter for HTTP<a class="headerlink" href="#step-42-http-filter-for-http" title="Permanent link">&para;</a></h5>
+<p>Using the procedure above and the information in the Filter Table, create an HTTP filter.</p>
+<h5 id="step-43-ftp-filter-for-ftp">Step 4.3 FTP Filter for FTP<a class="headerlink" href="#step-43-ftp-filter-for-ftp" title="Permanent link">&para;</a></h5>
+<p>Using the procedure above and the information in the Filter Table, create an FTP filter.</p>
+<p>Once you complete all of the filters in the Filter Table, you should be able to expand all the objects in the <strong>Filter</strong> folder and should resemble this:</p>
+<p><img alt="03_04-1-FiltersCreateCompleted" src="../images/03_04-1-FiltersCreateCompleted.jpg" /></p>
+<h5 id="step-44-contracts">Step 4.4 Contracts<a class="headerlink" href="#step-44-contracts" title="Permanent link">&para;</a></h5>
+<p>Contracts provide a way to control traffic flow within the ACI fabric between endpoint groups. Because ACI operates by default in a white list mode, without contracts there is no communication between EPGs. These contracts are built using a provider-consumer model where one endpoint group provides the services it wants to offer (servers) and another endpoint group consumes them (servers or clients). Contracts are assigned a scope of Global, Tenant, VRF, or Application Profile, which limit the accessibility of the contract.  The default scope is VRF.Exter</p>
+<p>Contracts consist of:</p>
+<ul>
+<li>Subjects - One or more subjects can be associated with a Contract. A subject has a name, a filter, and an action (Permit or Deny). A Subject also has a shortcut to support bidirectional (Apply Both Directions and Reverse Filter Ports). </li>
+<li>Filters - a Subject can have 1 or more filters.  Think of the Filter as an ACE or Entry within an ACL.</li>
+</ul>
+<p>A Contract in ACI will define the permitted (white list) communication between its associated EPGs.  Again, think of the Filters as Access Control Entries (ACE) and the Contract as an Access Control List (ACL). The biggest difference you will see, is that there are no vlans or IP Subnets or Host IP Addresses in these configurations.   </p>
+<p>With the Filters you have defined, you have port/protocol objects which you can now bundle together and apply in whichever direction is appropriate to EPGs.POD</p>
+<p>You will create two Contracts Using these FIlter Objects.</p>
+<h6 id="contract-table">Contract Table<a class="headerlink" href="#contract-table" title="Permanent link">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Contract Name</th>
+<th>Subject Name</th>
+<th>Apply Both Directions Checkbox</th>
+<th>Reverse Filters Ports Checkbox</th>
+<th>Filter Name (Select Existing form Drop Down)</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WebAccess-POD##</td>
+<td>WEB-ACCESS</td>
+<td>Checked (Default)</td>
+<td>Checked (Default)</td>
+<td>PODXX/BASIC-PODXX</td>
+<td>Permit</td>
+</tr>
+<tr>
+<td>WebAccess-POD##</td>
+<td>WEB-ACCESS (Second Entry)</td>
+<td>Checked (Default)</td>
+<td>Checked (Default)</td>
+<td>PODXX/HTTP-PODXX</td>
+<td>Permit</td>
+</tr>
+<tr>
+<td>FileAccess-POD##</td>
+<td>FILE-ACCESS</td>
+<td>Checked (Default)</td>
+<td>Checked (Default)</td>
+<td>PODXX/BASIC-PODX</td>
+<td>Permit</td>
+</tr>
+<tr>
+<td>FileAccess-POD##</td>
+<td>FILE-ACCESS (Second Entry)</td>
+<td>Checked (Default)</td>
+<td>Checked (Default)</td>
+<td>PODXX/FTP-PODXX</td>
+<td>Permit</td>
+</tr>
+</tbody>
+</table>
+<p>Directives Leave blank for all (Default)</p>
+<p>Priority- Leave blank for all (Default)</p>
+<h6 id="step-441-web-access-contract">Step 4.4.1 Web Access Contract<a class="headerlink" href="#step-441-web-access-contract" title="Permanent link">&para;</a></h6>
+<p>Within your Tenant, navigate to  <strong>Contracts</strong> </p>
+<p>Right-click <strong>Contracts</strong> folder icon and choose <strong>Create Contract</strong></p>
+<p><img alt="03_04-4-ContractCreate" src="../images/03_04-4-ContractCreate.jpg" /></p>
+<ol>
+<li>Create a contract named <strong>WebAccess-POD##</strong>.  Accept all the defaults including the Scope (VRF).</li>
+<li>Click the plus sign (<strong>+</strong>) in the <strong>Subjects:</strong> section to create a subject and add Filters.</li>
+</ol>
+<p><img alt="03_04-4-ContractCreateName" src="../images/03_04-4-ContractCreateName.jpg" /></p>
+<ol>
+<li>Add Filters using the previously created filters per the table above</li>
+<li>Click the <strong>Update</strong> button for your entry row.  </li>
+</ol>
+<p><img alt="03_04-4-ContractCreateDialog-Subject" src="D:\Dropbox (Indigo Wire Networks)\scripts\training\2020\aci4_labguide\docs\images\03_04-4-ContractCreateDialog-Subject.jpg" /></p>
+<ol>
+<li>Click <strong>OK</strong> to return to the Contract dialog</li>
+</ol>
+<p><img alt="03_04-4-ContractCreateDialog-SubjectOK" src="../images/03_04-4-ContractCreateDialog-SubjectOK.jpg" /></p>
+<ol>
+<li>Click <strong>Submit</strong> to complete the contract</li>
+</ol>
+<p><img alt="03_04-4-ContractCreateSubmit" src="../images/03_04-4-ContractCreateSubmit.jpg" /></p>
+<h6 id="step-442-file-access-contract">Step 4.4.2 File Access Contract<a class="headerlink" href="#step-442-file-access-contract" title="Permanent link">&para;</a></h6>
+<p>Using the procedure above and the information in the Contract Table, create the File Access Contract.</p>
+<p>Upon completion of the two Contracts, your Contracts section should look like below:</p>
+<p><img alt="03_04-4-ContractCreateCompleteExpanded" src="../images/03_04-4-ContractCreateCompleteExpanded.jpg" /></p>
 <h4 id="step-5-apply-contracts-to-epgs">Step 5: Apply Contracts to EPGs<a class="headerlink" href="#step-5-apply-contracts-to-epgs" title="Permanent link">&para;</a></h4>
+<p>Just as with ACLs its a good idea to make sure you understand the application flows.</p>
+<p>In ACI the terminology may add confusion at first.  Just remember that 'Providing' a Contract means providing a service (like TCP/80 inbound) and 'Consuming' a contract allows an EPG to connect to a provided service.</p>
+<p>Without contracts the endpoints in our EPGs have no connectivity outside their EPG.</p>
+<p>When we apply our new Contracts we want the endpoints in the App EPG to provide HTTP, ICMP, and SSH to the endpoints in the Web EPG.  We also want the endpoints (databases and file servers) in the DB EPG to provide FTP, ICMP, and SSH services to the endpoints in the App EPG.</p>
+<p><img alt="CloudMyLab_ACI4LabGuide_Diagrams_Contracts" src="../images/CloudMyLab_ACI4LabGuide_Diagrams_Contracts.jpeg" /></p>
 <h2 id="check-in">Check in<a class="headerlink" href="#check-in" title="Permanent link">&para;</a></h2>
+<p>This is quite a long lab so lets check in to see what we have accomplished and what functionality we should have.</p>
                 
               
               
