@@ -1,6 +1,6 @@
 .DS_Store
 temp
 local*
-site/
+site/*
 .idea/
 

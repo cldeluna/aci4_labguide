@@ -50,13 +50,16 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Topology & Design: topology.md
-  - Getting Around: lab_tips.md
-  - Step 1 - Fabric Discovery : 1_Fabric_Discovery/overview.md
-  - Step 2 - Fabric & Access Policies: 2_Fabric_Access_Policies/overview.md
-  - Step 3 - Tenants: 3_Tenants/overview.md
-  - Step 4 - Host & Layer 2 Connectivity: 4_Host_L2_Connectivity/overview.md
-  - Step 5 - External Layer 3 Connectivity: 5_External_L3_Connectivity/overview.md
-  - Step 6 - Management & Operations: 6_Management_Operations/overview.md
-  - Step 7 - Advanced Topics: 7_Advanced_Topics/overview.md
-  - Step 8 - Troubleshooting: 8_Troubleshooting/overview.md
-  - Step 9 - Programmability: 9_Programmability/overview.md
+  - Getting Around the Lab: lab_access.md
+  - Lab 01 - Fabric Discovery : 01_lab_fabric_discovery.md
+  - Lab 02 - Fabric & Access Policies: 02_lab_fabric_access_policies.md
+  - Lab 03 - Tenants: 03_lab_tenant_constructs.md
+  - Lab 04 - Host & Layer 2 Connectivity: 04_lab_layer2_connectivity.md
+  - Lab 05 - Integration with VMware ESXi: 05_lab_vmm_integration.md
+  - Lab 06 - External Layer 3 Connectivity: 06_lab_layer3_connectivity.md
+  - Lab 07 - Management & Operations: 07_lab_operations.md
+  - Lab 08 - Firewall Integration: 08_lab_fwl_integration.md
+  - Lab 09 - Troubleshooting: 09_lab_troubeleshooting.md
+  - Lab 10 - Programmability: 10_lab_programmability.md
+  - Lab 11 - App Center and ACI Optimize Feature: 11_lab_appcenter.md
+  - Lab 12 - Export Tech Support: 12_lab_techsupport.md
