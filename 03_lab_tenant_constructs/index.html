@@ -408,6 +408,26 @@
     Step 5: Apply Contracts to EPGs
   </a>
   
+    <nav class="md-nav" aria-label="Step 5: Apply Contracts to EPGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-51-apply-the-webaccess-podxx-contract-as-a-provided-contract-to-the-app-epg" class="md-nav__link">
+    Step 5.1 Apply the WebAccess-PODXX contract as a Provided Contract to the App EPG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-52-apply-the-fileaccess-podxx-contract-as-a-provided-contract-to-the-db-epg" class="md-nav__link">
+    Step 5.2 Apply the FileAccess-PODXX contract as a Provided Contract to the DB EPG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -682,6 +702,26 @@
   <a href="#step-5-apply-contracts-to-epgs" class="md-nav__link">
     Step 5: Apply Contracts to EPGs
   </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Apply Contracts to EPGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-51-apply-the-webaccess-podxx-contract-as-a-provided-contract-to-the-app-epg" class="md-nav__link">
+    Step 5.1 Apply the WebAccess-PODXX contract as a Provided Contract to the App EPG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-52-apply-the-fileaccess-podxx-contract-as-a-provided-contract-to-the-db-epg" class="md-nav__link">
+    Step 5.2 Apply the FileAccess-PODXX contract as a Provided Contract to the DB EPG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1042,8 +1082,32 @@ All other values remain unchanged and at their default settings.</p>
 <p>Without contracts the endpoints in our EPGs have no connectivity outside their EPG.</p>
 <p>When we apply our new Contracts we want the endpoints in the App EPG to provide HTTP, ICMP, and SSH to the endpoints in the Web EPG.  We also want the endpoints (databases and file servers) in the DB EPG to provide FTP, ICMP, and SSH services to the endpoints in the App EPG.</p>
 <p><img alt="CloudMyLab_ACI4LabGuide_Diagrams_Contracts" src="../images/CloudMyLab_ACI4LabGuide_Diagrams_Contracts.jpeg" /></p>
+<h5 id="step-51-apply-the-webaccess-podxx-contract-as-a-provided-contract-to-the-app-epg">Step 5.1 Apply the WebAccess-PODXX contract as a Provided Contract to the App EPG<a class="headerlink" href="#step-51-apply-the-webaccess-podxx-contract-as-a-provided-contract-to-the-app-epg" title="Permanent link">&para;</a></h5>
+<p>Navigate to <strong>PODXX_Tenant &gt;</strong> and expand <strong>Tiered-App &gt; Application EPGs &gt; App  &gt; Contracts</strong> </p>
+<p>Right click on the <strong>Contracts</strong> Folder icon and select <strong>Add Provided Contract</strong></p>
+<p>Select <strong>WebAccess-POD##</strong> contract. No other changes are necessary</p>
+<p>Click <strong>Submit</strong></p>
+<p>Examine the visual relationship by clicking on your <strong>Tiered-App</strong> Application Profile</p>
+<h5 id="step-52-apply-the-fileaccess-podxx-contract-as-a-provided-contract-to-the-db-epg">Step 5.2 Apply the FileAccess-PODXX contract as a Provided Contract to the DB EPG<a class="headerlink" href="#step-52-apply-the-fileaccess-podxx-contract-as-a-provided-contract-to-the-db-epg" title="Permanent link">&para;</a></h5>
+<p>Use the procedure above to apply the <strong>FileAccess-POD##</strong> contract as a <strong>Provided Contract</strong> of the <strong>DB</strong> EPG.</p>
 <h2 id="check-in">Check in<a class="headerlink" href="#check-in" title="Permanent link">&para;</a></h2>
 <p>This is quite a long lab so lets check in to see what we have accomplished and what functionality we should have.</p>
+<p>Once this Lab is complete you should have:</p>
+<ul>
+<li>A Tenant and associated VRF</li>
+<li>A Bridge Domain containing three subnets associated with the VRF</li>
+<li>An Application Profile "container" with three EPGs all mapped to the Bridge Domain (one BD but three subnets)</li>
+<li>Filters describing</li>
+<li>ICMP</li>
+<li>SSH</li>
+<li>HTTP</li>
+<li>FTP</li>
+<li>Two contracts describing </li>
+<li>the allowed connectivity between the App EPG and the Web EPG utilizing the appropriate Filters</li>
+<li>the allowed connectivity between the APP EPG and the DB EPG utilizing the appropriate Filters</li>
+<li>The contracts applied to the appropriate EPGs in the appropriate direction ( Provider - Server and Server Services and Consumer - Clients)</li>
+</ul>
+<p>The necessary Tenant-level logical components have now been created however a few steps remain to achieve connectivity external to the fabric and to Virtualized Hosts and Virtual Machines.</p>
                 
               
               

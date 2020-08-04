@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#step4-configure-host-connectivity-constructs-l2-and-layer-2-links" class="md-skip">
+        <a href="#lab-04-configure-host-connectivity-constructs-l2-and-layer-2-links" class="md-skip">
           Skip to content
         </a>
       
@@ -298,8 +298,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step4-configure-host-connectivity-constructs-l2-and-layer-2-links" class="md-nav__link">
-    Step4 Configure Host Connectivity Constructs (L2) and Layer 2 Links
+  <a href="#lab-04-configure-host-connectivity-constructs-l2-and-layer-2-links" class="md-nav__link">
+    Lab 04 Configure Host Connectivity Constructs (L2) and Layer 2 Links
   </a>
   
 </li>
@@ -320,9 +320,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#step-1-create-an-access-port" class="md-nav__link">
+    Step 1: Create an Access Port
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Create an Access Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-level-workflow-for-access-port" class="md-nav__link">
+    High Level Workflow for Access Port
+  </a>
+  
+    <nav class="md-nav" aria-label="High Level Workflow for Access Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-physical-layer" class="md-nav__link">
+    Configure the Physical Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-logical-layer" class="md-nav__link">
+    Configure the Logical Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-" class="md-nav__link">
     Step 1 -
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -465,8 +505,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step4-configure-host-connectivity-constructs-l2-and-layer-2-links" class="md-nav__link">
-    Step4 Configure Host Connectivity Constructs (L2) and Layer 2 Links
+  <a href="#lab-04-configure-host-connectivity-constructs-l2-and-layer-2-links" class="md-nav__link">
+    Lab 04 Configure Host Connectivity Constructs (L2) and Layer 2 Links
   </a>
   
 </li>
@@ -487,9 +527,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#step-1-create-an-access-port" class="md-nav__link">
+    Step 1: Create an Access Port
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Create an Access Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-level-workflow-for-access-port" class="md-nav__link">
+    High Level Workflow for Access Port
+  </a>
+  
+    <nav class="md-nav" aria-label="High Level Workflow for Access Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-physical-layer" class="md-nav__link">
+    Configure the Physical Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-logical-layer" class="md-nav__link">
+    Configure the Logical Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#step-1-" class="md-nav__link">
     Step 1 -
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -527,17 +607,53 @@
                 
                   <h1>Lab 04 - Host & Layer 2 Connectivity</h1>
                 
-                <h2 id="step4-configure-host-connectivity-constructs-l2-and-layer-2-links">Step4 Configure Host Connectivity Constructs (L2) and Layer 2 Links<a class="headerlink" href="#step4-configure-host-connectivity-constructs-l2-and-layer-2-links" title="Permanent link">&para;</a></h2>
+                <h2 id="lab-04-configure-host-connectivity-constructs-l2-and-layer-2-links">Lab 04 Configure Host Connectivity Constructs (L2) and Layer 2 Links<a class="headerlink" href="#lab-04-configure-host-connectivity-constructs-l2-and-layer-2-links" title="Permanent link">&para;</a></h2>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <p>So far we have a working fabric, working interface behaviors and characteristics, and our logical overlay (Tenants, EPGs, etc.)</p>
 <h2 id="lab-goals">Lab Goals<a class="headerlink" href="#lab-goals" title="Permanent link">&para;</a></h2>
+<p>The primary goal of this lab is to understand the physical and logical steps necessary to achieve connectivity from an ACI fabric to hosts and external networking devices.</p>
+<p>As with all things in ACI, it is important to understand the relationship between the constructs which abstract the physical layer and the logical.</p>
+<p>Lets begin with our topology.</p>
+<p><img alt="04_CloudMyLab_ACI4LabGuide_Diagrams - L2Topology" src="../images/04_CloudMyLab_ACI4LabGuide_Diagrams%20-%20L2Topology.jpeg" /></p>
 <ul>
-<li>Step 1: Create a Tenant and VRF</li>
-<li>Step 2: Create a Bridge Domain and Subnets</li>
-<li>Step 3: Create an Application Profile and EPGs</li>
-<li>Step 4: Create Filters and Contracts</li>
-<li>Step 5: Apply Contracts to EPGs</li>
+<li>Step 1:  Create an Access Port</li>
+<li>Step 2:  Create a Trunk Port</li>
+<li>Step 3:  Create a L2 vPC Access &amp; Trunk</li>
 </ul>
+<hr />
+<h4 id="step-1-create-an-access-port">Step 1: Create an Access Port<a class="headerlink" href="#step-1-create-an-access-port" title="Permanent link">&para;</a></h4>
+<h5 id="high-level-workflow-for-access-port"><strong>High Level Workflow for Access Port</strong><a class="headerlink" href="#high-level-workflow-for-access-port" title="Permanent link">&para;</a></h5>
+<h6 id="configure-the-physical-layer">Configure the Physical Layer<a class="headerlink" href="#configure-the-physical-layer" title="Permanent link">&para;</a></h6>
+<p>Configuring Interface to External interface (in this case it will be a switch interface)</p>
+<ol>
+<li><em>Configure the port behavior (Port Policy Group)</em></li>
+<li><em>Apply the port behavior to one or more interfaces (Interface Profile and Interface Selector)</em></li>
+<li><em>Associate those interfaces to one or more switches as called for by the design</em></li>
+</ol>
+<h6 id="configure-the-logical-layer">Configure the Logical Layer<a class="headerlink" href="#configure-the-logical-layer" title="Permanent link">&para;</a></h6>
+<p>“Configure” the EPG</p>
+<ul>
+<li><em>Associate the Physical Domain</em></li>
+<li><em>Associate the Static Ports</em>*</li>
+<li><em>Confirm default or more specific contracts are in place</em> </li>
+</ul>
+<p>Step 1.1: <strong>Configure the port behavior (Port Policy Group):</strong></p>
+<p><strong>Fabric &gt; Access Policies</strong> &gt; Interfaces &gt; Leaf Interfaces &gt; Policy Groups &gt; Leaf Access Port </p>
+<p>Create Leaf Access Port Policy Group</p>
+<p>POD##-PROD-10GAccess-PortPolGrp</p>
+<ul>
+<li>10G</li>
+<li>CDP enabled</li>
+<li>LLD enabled</li>
+<li>AEP PODXX</li>
+</ul>
+<p>Step 1.2: <strong>Apply the behavior defined by the port policy group "ENJ-PROD-10GAccess-PortPolGrp” to one or more interfaces:</strong></p>
+<p><strong>Fabric &gt; Access Policies</strong> &gt; Interfaces &gt; Leaf Interfaces &gt; Profiles </p>
+<p>Create Leaf Interface Profile
+POD##-PROD-DB-10GAcc-205-206-P03-IntProf</p>
+<p>POD##-PROD-DB-10GAcc-205-206-P14-IntProf</p>
+<p>POD##-PROD-DB-10GAcc-207-208-P16-IntProf</p>
+<p>POD##-PROD-DB-10GAcc-207-208-P04-IntProf</p>
 <h5 id="step-1-">Step 1 -<a class="headerlink" href="#step-1-" title="Permanent link">&para;</a></h5>
 <h2 id="check-in">Check in<a class="headerlink" href="#check-in" title="Permanent link">&para;</a></h2>
                 
