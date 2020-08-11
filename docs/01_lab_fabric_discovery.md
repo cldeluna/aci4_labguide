@@ -115,7 +115,7 @@ Note the warnings which will flash in the uppler right corner.  You will see a C
 You will see the "What's New" dialog and the main APIC Dashboard behding the dialog.
 
 Skim through the *What's New* dialog and close it.
-  
+
 
 ##### Step 3 - Areas of the APIC GUI
 Examine the the top-most section of the GUI interface. This top ribbon containing the main functional areas of the fabric (System, Tenants, Fabric, Virtual Networking, L4-L7 Services, Admin, Operations, Apps) is known as the **Menu Bar**.
@@ -199,13 +199,14 @@ From where you are in the Tenants menu navigate to:
 
 - Wherever there is a submit button and you are trying to make a change - click it.   Some changes won’t require it so the inconsistency sometimes calls that into question.
 - Refresh - sometimes your changes won’t appear until you do, you will see the little circular refresh button on most screens
+  ![01_apic_refreshbutton](images\01_apic_refreshbutton.jpg)
 - Hover over icons with your mouse for a few seconds to view the icon description
 
 ![Refresh and Hover](images/01_refresh_hover.jpg)
 
 
 
-## Exporing Fabric Inventory, Nodes, and Fabric Topology  
+## Exploring Fabric Inventory, Nodes, and Fabric Topology  
 
 Now that there is some familiarity with the GUI, lets validate the topology of the fabric.
 
@@ -230,7 +231,7 @@ From the Topology tab in the work pan verify that the displayed topology reflect
 
 Note: You will see the same topology view if you go to   
 **Fabric > Inventory > Pod 1 > Topology**
-  
+
 ###### Device Summary via hover over device icon
 Hover over each device icon for a very useful physical summary of the device.
 ![Refresh and Hover](images/01_topology_gui_device_hover.jpg)

@@ -400,7 +400,27 @@ When we apply our new Contracts we want the endpoints in the App EPG to provide 
 
 
 
+##### Step 5.1 Apply the WebAccess-PODXX contract as a Provided Contract to the App EPG
 
+Navigate to **PODXX_Tenant >** and expand **Tiered-App > Application EPGs > App  > Contracts** 
+
+Right click on the **Contracts** Folder icon and select **Add Provided Contract**
+
+Select **WebAccess-POD##** contract. No other changes are necessary
+
+Click **Submit**
+
+Examine the visual relationship by clicking on your **Tiered-App** Application Profile
+
+
+
+
+
+
+
+##### Step 5.2 Apply the FileAccess-PODXX contract as a Provided Contract to the DB EPG
+
+ Use the procedure above to apply the **FileAccess-POD##** contract as a **Provided Contract** of the **DB** EPG.
 
 
 
@@ -410,3 +430,20 @@ When we apply our new Contracts we want the endpoints in the App EPG to provide 
 ## Check in
 
 This is quite a long lab so lets check in to see what we have accomplished and what functionality we should have.
+
+Once this Lab is complete you should have:
+
+- A Tenant and associated VRF
+- A Bridge Domain containing three subnets associated with the VRF
+- An Application Profile "container" with three EPGs all mapped to the Bridge Domain (one BD but three subnets)
+- Filters describing
+  - ICMP
+  - SSH
+  - HTTP
+  - FTP
+- Two contracts describing 
+  - the allowed connectivity between the App EPG and the Web EPG utilizing the appropriate Filters
+  - the allowed connectivity between the APP EPG and the DB EPG utilizing the appropriate Filters
+- The contracts applied to the appropriate EPGs in the appropriate direction ( Provider - Server and Server Services and Consumer - Clients)
+
+The necessary Tenant-level logical components have now been created however a few steps remain to achieve connectivity external to the fabric and to Virtualized Hosts and Virtual Machines.
