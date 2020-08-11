@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#05-lab-integrate-aci-with-vmware-using-native-distributed-virtual-switch-dvs" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -279,10 +284,45 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Lab 05 - Integration with VMware ESXi
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Lab 05 - Integration with VMware ESXi" class="md-nav__link md-nav__link--active">
       Lab 05 - Integration with VMware ESXi
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -378,6 +418,38 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -391,9 +463,267 @@
                   
                 
                 
-                  <h1>Lab 05 - Integration with VMware ESXi</h1>
-                
-                
+                <h1 id="05-lab-integrate-aci-with-vmware-using-native-distributed-virtual-switch-dvs">05 Lab Integrate ACI with VMware Using Native Distributed Virtual Switch (DVS)<a class="headerlink" href="#05-lab-integrate-aci-with-vmware-using-native-distributed-virtual-switch-dvs" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>One of the most powerful features of ACI is its native integration with the Virtualization Environment.</p>
+<p>The steps in this lab will integrate ACI APICs with the VMware environment (already configured) via vCenter so that VMs on ESXi hosts will be able to connect to the Logical ACI environment and take advantage of the security we built in Lab 3.  In ACI this configuration construct is called a Virtual Machine Manager (VMM) Domain.</p>
+<p>This integration allows the ACI APIC to communicate with vCenter as though it were an Administrator and automatically set up the required networking the Virtual Machines will need to communicate securely on the ACI fabric.</p>
+<p>Required Services and Information </p>
+<ul>
+<li>Administrator level account on vCenter</li>
+<li>Admin Username</li>
+<li>Admin Password</li>
+<li>The exact name of an existing Data Center configured in vCenter to which we want to integreate</li>
+</ul>
+<p>In a production environment it is best practice to create a dedicated account for this integration, but in the lab we use the already existing admin account and credentials.</p>
+<p>This lab specifically calls out the default VMware DVS which is part of ESXi.   That is because ACI supports integration with VMware vCenter using:</p>
+<ul>
+<li>Distributed Virtual Switch (DVS)  </li>
+<li>Native to VMware</li>
+<li>Cisco Application Virtual Switch AVS</li>
+<li>Cisco ACI Virtual Edge (AVE) (From ACI 3.1(1) and VMware vCenter 6.0 and later)</li>
+<li>Next generation virtual switch from Cisco</li>
+</ul>
+<p>In this lab we will focus on native VDS integration as it is part of VMware.</p>
+<p>Goals</p>
+<p>Step 1 - Configure a Dynamic Vlan Pool (Move this to Lab 2)</p>
+<p>Step 2 - Configure a vCenter VMM Domain</p>
+<p>Step 3 - Verify Cisco APIC Connection to VMware vCenter Server</p>
+<p>Step 4 - Verify that the APIC has Provisioned a DVS in vCenter</p>
+<p>Configure VMM Domain Integration</p>
+<p>Step 1 - Configure a Dynamic Vlan Pool</p>
+<p>Navigate to Fabric &gt;  Access Policies &gt; VLAN and right-click on the VLAN folder icon and select <strong>Create VLAN Pool</strong></p>
+<p>Allocation Mode: Dynamic Allocation</p>
+<table>
+<thead>
+<tr>
+<th>VLAN Range:</th>
+<th>Value</th>
+<th>Allocation Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Range (From)</td>
+<td>3##1</td>
+<td>Dynamic</td>
+</tr>
+<tr>
+<td>Range (To)</td>
+<td>3##9</td>
+<td>Dynamic</td>
+</tr>
+</tbody>
+</table>
+<p>* Replace ## with your assigned 2-digit Pod number</p>
+<p>Note: Vlan 3##0 is part of the Static Pool</p>
+<p>Click the plus sign (+) in the Encap Blocks table to configure the range.</p>
+<p>Allocation Mode: Inherit allocMode from parent</p>
+<p>Role: External or On the wire encapsulations</p>
+<p>You will recall creating a static Vlan Pool in Lab 2.  With dynamic allocation, the APIC will automatically assign VLANS as needed within the range you define.  This facilitates automation as well as eases the burden of configuration.  </p>
+<p>The role defines the use of the VLAN range.  External or On the wire encapsulation is used for allocating VLANS for each EPG associated to the VMM domain.  The VLANs are used when packets are sent to or from Leaf switches.  The internal role is used for private VLAN allocations in the internal vSwitch by the Cisco ACI Virtual Edge (AVE).  With the Intenral role, the VLANS are not seen outside of the ESXi host or on the wire.</p>
+<p>Click OK to return to the pool configuration dialog and click Submit.</p>
+<p>Step 2 - Configure a vCenter VMM Domain</p>
+<p>Its important to remember that what you are actually configuring with a VMM Domain is a virtual switch on the Hypervisor(s) (ESXi) via the hypervisor manager (vCenter in our case).</p>
+<p>Step 2.1 - vCenter Domain</p>
+<p>Navigate to Virtual <strong>Networking &gt; VMM Domains &gt; VMware</strong> and right-click on the VMware folder and select <strong>Create vCenter Domain</strong>.  A Create vCenter Domain dialog will pop up.</p>
+<p>Notice the various Hypervisors which can be integrated into ACI. </p>
+<table>
+<thead>
+<tr>
+<th>Setting:</th>
+<th>Value</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual Switch Name:</td>
+<td>POD11-vCenter-VDS</td>
+<td></td>
+</tr>
+<tr>
+<td>Virtual Switch:</td>
+<td>VMware vSphere Distributed Switch</td>
+<td>Unchanged<br />This is the default value</td>
+</tr>
+<tr>
+<td>Associated Attachable Entity Profile:</td>
+<td>Leave Blank</td>
+<td></td>
+</tr>
+<tr>
+<td>Access Mode:</td>
+<td>Read Write Mode</td>
+<td>Unchanged<br />Read Write Mode is the default</td>
+</tr>
+<tr>
+<td>Endpoint Retention Time (seconds)</td>
+<td>0</td>
+<td>Unchanged<br />This is the default</td>
+</tr>
+<tr>
+<td>VLAN Pool:</td>
+<td>POD##-Dynamic-VLAN-Pool</td>
+<td>Configured in Lab 2</td>
+</tr>
+</tbody>
+</table>
+<p>Enter the name: POD##-vCenter-VDS</p>
+<p>Make sure that <strong>VMware vSphere Distributed Switch</strong> is selected </p>
+<p>Leave the Associated Attachable Entity Profile (AAEP) empty. You will define it in a later procedure.  Choose your dynamic VLAN pool (POD##-VLANs).</p>
+<p>Step 2.2 - vCenter Credentials</p>
+<p>Click the plus sign (+) in the  <strong>vCenter Credentials:</strong> table to define credentials with these settings.</p>
+<table>
+<thead>
+<tr>
+<th>Name:</th>
+<th>vCenter Username</th>
+<th>Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POD##-vCenter-Credentials</td>
+<td>administrator@vsphere.local</td>
+<td>1234QWer!</td>
+</tr>
+</tbody>
+</table>
+<p>Click OK</p>
+<p>Step 2.3 - vCenter Server</p>
+<p>Click the plus sign (+) in the <strong>vCenter:</strong> table to define the controller settings (IP, etc.).</p>
+<p>Name: POD##-vCenter-Server</p>
+<p>The vCenter controller name does not have to match the name of the vCenter domain.    Either the IP or the hostname can be entered.</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Management IP Address</th>
+<th>Username</th>
+<th>Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vCenter-P1</td>
+<td>192.168.10.202</td>
+<td>administrator@vsphere.local</td>
+<td>1234QWer!</td>
+</tr>
+<tr>
+<td>vCenter-P2</td>
+<td>192.168.10.204</td>
+<td>administrator@vsphere.local</td>
+<td>1234QWer!</td>
+</tr>
+<tr>
+<td>vCenter-P3</td>
+<td>192.168.10.206</td>
+<td>administrator@vsphere.local</td>
+<td>1234QWer!</td>
+</tr>
+<tr>
+<td>vCenter-P4</td>
+<td>192.168.10.208</td>
+<td>administrator@vsphere.local</td>
+<td>1234QWer!</td>
+</tr>
+<tr>
+<td>vCenter-P5</td>
+<td>192.168.10.210</td>
+<td>administrator@vsphere.local</td>
+<td>1234QWer!</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Setting:</th>
+<th>Value</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DVS Version:</td>
+<td>DVS Version 6</td>
+<td>If you choose the default DVS version (6.5) you would not be able to add the hypervisor with version DVS 6.5 due to a VMware bug</td>
+</tr>
+<tr>
+<td>Stats Collection:</td>
+<td>Disabled</td>
+<td>This is the default value</td>
+</tr>
+<tr>
+<td>Data center:</td>
+<td>DC</td>
+<td>The data center name must exactly match the data center name as it is defined in vCenter</td>
+</tr>
+<tr>
+<td>Management  EPG:</td>
+<td><Empty></td>
+<td>You do not configure any EPG for managing the VMware vCenter because the connection from the Cisco APIC to the vCenter is out-of-band (OOB)</td>
+</tr>
+<tr>
+<td>Associated Credentials:</td>
+<td>POD##-vCenter-Credentials</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Set vSwitch Policy to CDP, leave all other settings at their default values </p>
+<p>Click Submit</p>
+<p>Step 3 - Verify Cisco APIC Connection to VMware vCenter Server</p>
+<p>Step 3.1 Verify that the APIC has discovered vCenter</p>
+<p>Navigate to Virtual Networking &gt; VMM Domains &gt; VMware and expand your vCenter domain and all of its subelements.</p>
+<p>Note: The APIC connects to the vCenter and obtains its inventory, including hypervisors, VMs, and uplinks.  You will see all the VMs that have been installed on your host.</p>
+<p>Examine the status of the vmnic interfaces.  You can over over them in the Topology page, click them in the naviation pane, or go to the General tab.</p>
+<p>vmnic 0,2, and 3 should be up.</p>
+<p>VMNIC Map for POD##</p>
+<table>
+<thead>
+<tr>
+<th>VMNIC #</th>
+<th>Connected To</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Management Switch</td>
+<td>Management</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LEAF-1</td>
+<td>Data Path</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Leaf-2</td>
+<td>Data Path</td>
+</tr>
+</tbody>
+</table>
+<p>Step 4 - Verify that the APIC has Provisioned a DVS in vCenter</p>
+<p>Step 4.1 Accessing vCenter</p>
+<p>In Google Chrome open another tab and connect to vCenter via https://vcenter.  The hostname will resolve to 192.168.10.50</p>
+<p>Accept the untrusted certificate security warnings and clikc vSphere Web Client (Flash)</p>
+<p>If prompted, enable Adobe Flash Playre by clicking its button and choosing Allow</p>
+<p>Accept any security warnings and log in as <strong>administrator@vsphere.local</strong> with password <strong>1234QWer!</strong></p>
+<p>Go to Networking .  Expand the folder that has been created under your data center (DC).  You should see a DVS wit hthe name of the configured vCenter domain (POD##-vCenter-vDS), within a folder of the same name.  Expand the DVS to see two networks have been automatically created.  Click the Summary tab to see details about the DVS.</p>
+<p>vCenter can take up to 15 minutes upon bootup to be ready.  When vCenter vecomes active and reachable you will be able to see the elements.</p>
+<p>Configure AAEP to Selectively Allow Vlan Traffic.</p>
+<p>Attachable Access Entity Profiles (AAEPs) can be considered the "where" of the fabric configuration and are used to group domains with similar requirements.  They allow a one to many relationship between the policy groups and domains.</p>
+<p>AEPs are tied to interface policy groups. One ore more domains are added to an AAEP. By grouping domains into AAEPs and associating them, the fabric knows where the various devices in the domain reside.  Cisco APIC can push the Vlans and policy to the required interfaces.</p>
                 
               
               

@@ -316,7 +316,22 @@
     Lab Goals
   </a>
   
-    <nav class="md-nav" aria-label="Lab Goals">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    Putting It All Together
+  </a>
+  
+    <nav class="md-nav" aria-label="Putting It All Together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-policies-and-tenant-objects-to-achieve-connectivity" class="md-nav__link">
+    Access Policies and Tenant objects to achieve connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Policies and Tenant objects to achieve connectivity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -358,6 +373,11 @@
   <a href="#step-1-" class="md-nav__link">
     Step 1 -
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -523,7 +543,22 @@
     Lab Goals
   </a>
   
-    <nav class="md-nav" aria-label="Lab Goals">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    Putting It All Together
+  </a>
+  
+    <nav class="md-nav" aria-label="Putting It All Together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-policies-and-tenant-objects-to-achieve-connectivity" class="md-nav__link">
+    Access Policies and Tenant objects to achieve connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Policies and Tenant objects to achieve connectivity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -577,6 +612,11 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#check-in" class="md-nav__link">
@@ -609,17 +649,29 @@
                 
                 <h2 id="lab-04-configure-host-connectivity-constructs-l2-and-layer-2-links">Lab 04 Configure Host Connectivity Constructs (L2) and Layer 2 Links<a class="headerlink" href="#lab-04-configure-host-connectivity-constructs-l2-and-layer-2-links" title="Permanent link">&para;</a></h2>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
-<p>So far we have a working fabric, working interface behaviors and characteristics, and our logical overlay (Tenants, EPGs, etc.)</p>
+<p>So far we have a working fabric (underlay), working individual interface behaviors and characteristics, and our logical overlay (Tenants, EPGs, etc.).</p>
+<p>We have no "Data Plane" connectivity.  That  is, while we can manage our fabric and the fabric itself is operational, there is no connectivity to external network devices or hosts.  As with any network, this is where you will spend most of your time once the fabric is operational.  </p>
 <h2 id="lab-goals">Lab Goals<a class="headerlink" href="#lab-goals" title="Permanent link">&para;</a></h2>
 <p>The primary goal of this lab is to understand the physical and logical steps necessary to achieve connectivity from an ACI fabric to hosts and external networking devices.</p>
 <p>As with all things in ACI, it is important to understand the relationship between the constructs which abstract the physical layer and the logical.</p>
 <p>Lets begin with our topology.</p>
 <p><img alt="04_CloudMyLab_ACI4LabGuide_Diagrams - L2Topology" src="../images/04_CloudMyLab_ACI4LabGuide_Diagrams%20-%20L2Topology.jpeg" /></p>
 <ul>
-<li>Step 1:  Create an Access Port</li>
-<li>Step 2:  Create a Trunk Port</li>
-<li>Step 3:  Create a L2 vPC Access &amp; Trunk</li>
+<li>
+<p>Understand Interface Constructs and Relationships</p>
+</li>
+<li>
+<p>Step 1:  Create an Access Port</p>
+</li>
+<li>
+<p>Step 2:  Create a Trunk Port</p>
+</li>
+<li>
+<p>Step 3:  Create a L2 vPC Access &amp; Trunk</p>
+</li>
 </ul>
+<h2 id="putting-it-all-together">Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permanent link">&para;</a></h2>
+<h3 id="access-policies-and-tenant-objects-to-achieve-connectivity">Access Policies and Tenant objects to achieve connectivity<a class="headerlink" href="#access-policies-and-tenant-objects-to-achieve-connectivity" title="Permanent link">&para;</a></h3>
 <hr />
 <h4 id="step-1-create-an-access-port">Step 1: Create an Access Port<a class="headerlink" href="#step-1-create-an-access-port" title="Permanent link">&para;</a></h4>
 <h5 id="high-level-workflow-for-access-port"><strong>High Level Workflow for Access Port</strong><a class="headerlink" href="#high-level-workflow-for-access-port" title="Permanent link">&para;</a></h5>
