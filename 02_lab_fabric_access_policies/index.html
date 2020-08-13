@@ -399,6 +399,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#configuring-vlan-pools-physical-domains-and-aaeps" class="md-nav__link">
+    Configuring Vlan Pools, Physical Domains, and AAEPs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-interface-policies-and-profiles" class="md-nav__link">
     Configuring Interface Policies and Profiles
   </a>
@@ -442,8 +449,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-6-creating-interface-policy-groups-access-interface" class="md-nav__link">
-    Step 6 - Creating Interface Policy Groups - Access Interface
+  <a href="#step-6-creating-interface-profile-access-interface" class="md-nav__link">
+    Step 6 - Creating Interface Profile - Access Interface
   </a>
   
 </li>
@@ -734,6 +741,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#configuring-vlan-pools-physical-domains-and-aaeps" class="md-nav__link">
+    Configuring Vlan Pools, Physical Domains, and AAEPs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-interface-policies-and-profiles" class="md-nav__link">
     Configuring Interface Policies and Profiles
   </a>
@@ -777,8 +791,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-6-creating-interface-policy-groups-access-interface" class="md-nav__link">
-    Step 6 - Creating Interface Policy Groups - Access Interface
+  <a href="#step-6-creating-interface-profile-access-interface" class="md-nav__link">
+    Step 6 - Creating Interface Profile - Access Interface
   </a>
   
 </li>
@@ -913,9 +927,9 @@
 <p>Navigate to <strong>Fabric &gt; Access Policis &gt; Policies &gt; Policies &gt; Switch &gt; VPC Domain</strong>.</p>
 <p><img alt="vPC Dead Peer Configuration" src="../images/02_access_vpc_domain.jpg" /></p>
 <p>Review the configuration of the <strong>default</strong> vPC domain Dead Peer timer.  Even in a production environment the defaults are rarely changed.  The object name can be misleading as this is <em>not</em> where the vPC domain is configured.</p>
-<p>Select the <strong>Virtual Port Channel default</strong> object at the top level of <strong>Fabric &gt; Access Policis &gt; Policies &gt; Policies &gt; Switch</strong></p>
+<p>Select the <strong>Virtual Port Channel default</strong> object at the top level of <strong>Fabric &gt; Access Policies &gt; Policies &gt; Switch &gt; VPC Domain</strong></p>
 <p><img alt="vPC Protection Group Configured" src="../images/02_access_vpc_protgrp_configured.jpg" /></p>
-<p>In the Work Pane you can see that the two fabric leaf switches, Node IDs 102 and 103, are configured as a VPC "Protection Group" aka vPC Domain.  The VPC Pair ID is 101 (as a best pracitce use the lowest Node ID number) and the fabric has automatically assigned the the vPC Domain an IP address from the TEP IP address block.</p>
+<p>In the Work Pane you can see that the two fabric leaf switches, Node IDs 102 and 103, are configured as a VPC "Protection Group" which is ACI's name for a vPC Domain.  The VPC Pair ID is 101 (as a best practice use the lowest Node ID number) and the fabric has automatically assigned the the vPC Domain an IP address from the TEP IP address block.</p>
 <p>Configuring the vPC Domain is simple once you know where that configuration is done in the GUI.</p>
 <p><img alt="vPC Protection Group Configured" src="../images/02_access_vpc_protgrp_config_submit.jpg" /></p>
 <table>
@@ -954,13 +968,17 @@
 <p>In our first example, we will configure a single access port on LEAF-2.</p>
 <p>Since the switches are abstracted, it is also possible to define an object that represents both switches.  When configuring a vPC or two access ports using the same port on each specific switch, this pair object can be used. </p>
 <p>In our second example we will associate the same port, e1/11, to the LEAFS_102_103_LeafProf Leaf Profile.  In one step or associate we have configured port e1/11 on both switches.  In this exercise port e1/11 will be configured as a vPC.</p>
+<h2 id="configuring-vlan-pools-physical-domains-and-aaeps">Configuring Vlan Pools, Physical Domains, and AAEPs<a class="headerlink" href="#configuring-vlan-pools-physical-domains-and-aaeps" title="Permanent link">&para;</a></h2>
+<p>Before configuring physical interface characteristics, lets configure the objects which will define our Vlans (Vlan Pools), where the vlans can be trunked (AAEPs) and how they are associated to other objects (Domains).</p>
+<p><img alt="02_fabric_access_relationships-vlan-pydom-aep" src="../images/02_fabric_access_relationships-vlan-pydom-aep.jpg" /></p>
+<p>Log in to your Student PC, open your browser, and access the APIC GUI.</p>
+<p>Vlan Pool: POD##-StaticVlanPool [vlan-3000] POD##-PhyDom POD##-AEP</p>
 <h2 id="configuring-interface-policies-and-profiles">Configuring Interface Policies and Profiles<a class="headerlink" href="#configuring-interface-policies-and-profiles" title="Permanent link">&para;</a></h2>
 <p>Keeping in mind the full connectivity workflow of:</p>
 <ol>
 <li>Configure the Physical Layer Characteristics &lt;-- You are here</li>
 <li>Configure the Logical Layer Characteristics</li>
 </ol>
-<p>Log in to your Student PC, open your browser, and access the APIC GUI.</p>
 <h5 id="step-1-creating-interface-policies-cdp-enabled">Step 1 - Creating Interface Policies - CDP Enabled<a class="headerlink" href="#step-1-creating-interface-policies-cdp-enabled" title="Permanent link">&para;</a></h5>
 <p>Navigate to <strong>Fabric &gt; Access Policies &gt; Policies &gt; Interface &gt; CDP Interface</strong></p>
 <p>Expand <strong>CDP Interface</strong> and note that there is a default policy that comes pre configured.  This is the case with many objects and while the controller will use these default policies when needed and an explicit policy is not selected, it is a best practice to explicitly configure policies for the behavior you want.</p>
@@ -1028,6 +1046,11 @@
         <td>POD##_LLDP_Disabled<br>Example: POD11_LLDP_Disabled</td>
         <td>Recieve State = Disabled<br>Transmit State = Disabled</td>
     </tr>
+    <tr>
+        <td>Interface Policy to enable LLDP</td>
+        <td>POD##_LLDP_Enabled<br>Example: POD11_LLDP_Enabled</td>
+        <td>Recieve State = Enabled<br>Transmit State = Enabled</td>
+    </tr>
 </tbody>
 </table>
 
@@ -1058,7 +1081,30 @@
 <h5 id="step-5-creating-interface-policy-groups-access-interface">Step 5 - Creating Interface Policy Groups - Access Interface<a class="headerlink" href="#step-5-creating-interface-policy-groups-access-interface" title="Permanent link">&para;</a></h5>
 <p>Lets take these individual behaviors defined in each <strong>Interface Policy</strong> and bundle them into a group of behaviors that can then be associated with an interface.  This bundle of configuration items defining the port behavior is called an <strong>Interface Policy Group</strong>.</p>
 <p>Lets define the Policy Group that would define a 1Gig interface with CDP enabled, LLD disabled, and a static port channel.</p>
-<h5 id="step-6-creating-interface-policy-groups-access-interface">Step 6 - Creating Interface Policy Groups - Access Interface<a class="headerlink" href="#step-6-creating-interface-policy-groups-access-interface" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+    <tr>
+        <th>Configuration Item</th>
+        <th>Configuration Name</th>
+        <th>Configuration Values</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Interface Policy Group for generic 1G standard access port</td>
+        <td>POD##_1G_StdAccess_PortPolGrp<br>Example: POD11_1G_StdAccess_PortPolGrp</td>
+        <td>Link Level Policy: POD11_1G_IntPol<br>CDP Policy: POD11_CDP_Enabled<br> LLDP Policy: POD11_LLDP_Enabled<br>Attached Entity Profile: POD11-AEP</td>
+    </tr>
+    <tr>
+        <td>Interface Policy for an active LACP port channel</td>
+        <td>POD##_LACP_Active_Po<br>Example: POD11_p11_1G_PortPolGrp</td>
+        <td>Link Level Policy: POD11_1G_IntPol<br>CDP Policy: POD11_CDP_Enabled<br> LLDP Policy: default<br>Mode: LACP Active<br>Attached Entity Profile: blank for now</td>
+    </tr>   
+</tbody>
+</table>
+
+<p>1G_</p>
+<h5 id="step-6-creating-interface-profile-access-interface">Step 6 - Creating Interface Profile - Access Interface<a class="headerlink" href="#step-6-creating-interface-profile-access-interface" title="Permanent link">&para;</a></h5>
 <h5 id="check-in">Check in<a class="headerlink" href="#check-in" title="Permanent link">&para;</a></h5>
 <p>With these policies, we have now defined "reusable behaviors":</p>
 <ul>
@@ -1066,7 +1112,7 @@
 <li>Enable CDP</li>
 <li>Disable LLDP</li>
 <li>Static Port Channel</li>
-<li>Active LAC Port Channel</li>
+<li>Active LAC Port Channel1G</li>
 </ul>
 <p>We have also defined two </p>
 <p>It important to note that these "behaviors" are not associated with an interface or even a switch at this point. Think of them as "raw ingredients" that are ready for use in order to implement a specific functionality.</p>
