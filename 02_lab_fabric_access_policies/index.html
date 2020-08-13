@@ -311,6 +311,19 @@
     Fabric Policies
   </a>
   
+    <nav class="md-nav" aria-label="Fabric Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bgp-route-reflector-policy" class="md-nav__link">
+    BGP Route Reflector Policy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -633,6 +646,19 @@
     Fabric Policies
   </a>
   
+    <nav class="md-nav" aria-label="Fabric Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bgp-route-reflector-policy" class="md-nav__link">
+    BGP Route Reflector Policy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -818,16 +844,17 @@
 <li>BGP Route Reflector Policy</li>
 </ul>
 <p><img alt="Lab Topology" src="../images/02_fabric_fabric_pols.jpg" /></p>
+<h4 id="bgp-route-reflector-policy">BGP Route Reflector Policy<a class="headerlink" href="#bgp-route-reflector-policy" title="Permanent link">&para;</a></h4>
 <p>The BGP Route Reflect policy one of the first fabric configuration items which needs to be completed for a functioning fabric.  In a production fabric, it is best practice to make 2 or 4 spines route reflectors.</p>
 <p>Note: In recent versions of ACI configuring the route reflectors is done from <strong>System &gt; System Settings &gt; BGP Route Reflector</strong> </p>
 <p><img alt="Lab Topology" src="../images/02_system_settings_rr.jpg" /></p>
-<p>This activity is only done once and the route reflector has already been configured in the the lab for all students.</p>
+<p>This activity is only done once and the route reflector policy has already been configured in the the lab for all students.</p>
 <p><img alt="Lab Topology" src="../images/02_system_settings_rr_configured.jpg" /></p>
 <h3 id="access-policies">Access Policies<a class="headerlink" href="#access-policies" title="Permanent link">&para;</a></h3>
 <p>Unlike the Fabric Policies which are often configured at turn up and then largely left alone, Access Policies are used often to configure new vlans, domains, switches, and interfaces.</p>
 <p>Fabric Policies are analogous to configuring two switches in VSS mode or in a vPC domain or VDC.  </p>
 <p>Access Policies are analogous to configuring vlans, access or trunk interfaces, and interface settings. </p>
-<p>Access Policies are the "configuration bits" that you will fashion together to obtain the functionality you need for your fabric.</p>
+<p>Access Policies are the "configuration bits" that you will fashion together to obtain the connectivity you need for your fabric.</p>
 <p>You build Fabric Access Policies with multiple configuration objects:</p>
 <table>
 <thead>
@@ -863,7 +890,7 @@
     </tr>
     <tr>
         <td>Switch Profile</td>
-        <td>Defines a fabric switch to which Interface Profiles can be associated</td>
+        <td>Defines a fabric switch or a pair of fabric switches to which Interface Profiles can be associated</td>
     </tr>
 </tbody>
 </table>
@@ -878,7 +905,7 @@
 <p>Use underscores (spaces are not allowed)</p>
 <p>Keep names short</p>
 <h3 id="already-configured">Already Configured<a class="headerlink" href="#already-configured" title="Permanent link">&para;</a></h3>
-<p>As with the Route Reflector configuration, there are other configuration activities which are done ones at the fabric level (rather than the tenant level)</p>
+<p>As with the Route Reflector configuration, there are other configuration activities which are done once at the fabric level (rather than the tenant level).  Because this configuration is done once per fabric, you will find them already configured in the Lab.   This section will review what has already been configured and how to perform the configuration for completeness in your training. Please do not perform these configuration activities on the lab fabric.</p>
 <h4 id="vpc-domains-in-aci-vpc-protection-groups">vPC Domains in ACI - vPC Protection Groups<a class="headerlink" href="#vpc-domains-in-aci-vpc-protection-groups" title="Permanent link">&para;</a></h4>
 <p>Since one of the first things we are going to do in this lab is configure a port channel (vPC on ACI and a port-channel on switch side), we need to make sure the two leaf switches are configured as a vPC Domain.</p>
 <p>This step is done onece for each vPC Domain but we will review the required steps here.  </p>
@@ -911,7 +938,7 @@
 <p>You would then click <strong>Submit</strong> but remember to not do so in the Lab environment.</p>
 <p>In the Lab environment this fabric level configuration is complete and the leaf switches are already operating as a vPC pair.</p>
 <h4 id="switch-policies">Switch Policies<a class="headerlink" href="#switch-policies" title="Permanent link">&para;</a></h4>
-<p>Defining switch "objects" which can then have policies applied to them is part of the inital fabric configuration and only performed once per switch and switch pair. </p>
+<p>Defining switch "objects" which can then have policies applied to them is part of the initial fabric configuration and only performed once per switch and switch pair. </p>
 <p>Navigate to <strong>Fabric &gt; Access Policies &gt; Switches &gt; Leaf Switches</strong>.</p>
 <p>Notice the options in the Navigation Pane:
 - Profiles &lt;-- Leaf Profiles - this is where the switch "objects" are configured
