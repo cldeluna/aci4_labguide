@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#export-tech-support" class="md-skip">
+        <a href="#export-tech-support-and-audit-logs" class="md-skip">
           Skip to content
         </a>
       
@@ -371,9 +371,150 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Lab 12 - Export Tech Support
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="Lab 12 - Export Tech Support" class="md-nav__link md-nav__link--active">
       Lab 12 - Export Tech Support
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    Goal
+  </a>
+  
+    <nav class="md-nav" aria-label="Goal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc" class="md-nav__link">
+    Step 1 - Configure a remote location for the FTP service on your Student PC
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1 - Configure a remote location for the FTP service on your Student PC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-2-review-the-two-types-of-tech-suport-export-policies-available-eon-the-apic" class="md-nav__link">
+    Step 2 - Review the two types of Tech Suport export policies available eon the APIC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-there-are-no-files-in-the-ftp-root-directory-on-your-student-pc" class="md-nav__link">
+    Step 3 - Verify there are no files in the FTP root directory on your Student PC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-enable-the-ftp-server-on-studentpc" class="md-nav__link">
+    Step 4 -  Enable the FTP Server on StudentPC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-enable-the-tech-support-export" class="md-nav__link">
+    Step 5 - Enable the Tech Support export
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-collect-tech-support-report" class="md-nav__link">
+    Step 6 - Collect Tech Support Report
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-check-export-status" class="md-nav__link">
+    Step 7 - Check Export status
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exporting-audit-logs" class="md-nav__link">
+    Exporting Audit Logs
+  </a>
+  
+    <nav class="md-nav" aria-label="Exporting Audit Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-ssh-to-apic" class="md-nav__link">
+    Step 1 - SSH to APIC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-redirect-output-to-a-text-file" class="md-nav__link">
+    Step 2 - Redirect Output to a Text File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-view-the-saved-log" class="md-nav__link">
+    Step 3 - View the saved log
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 - View the saved log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-and-example-output" class="md-nav__link">
+    Command and example output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -395,6 +536,131 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    Goal
+  </a>
+  
+    <nav class="md-nav" aria-label="Goal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc" class="md-nav__link">
+    Step 1 - Configure a remote location for the FTP service on your Student PC
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1 - Configure a remote location for the FTP service on your Student PC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-2-review-the-two-types-of-tech-suport-export-policies-available-eon-the-apic" class="md-nav__link">
+    Step 2 - Review the two types of Tech Suport export policies available eon the APIC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-there-are-no-files-in-the-ftp-root-directory-on-your-student-pc" class="md-nav__link">
+    Step 3 - Verify there are no files in the FTP root directory on your Student PC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-enable-the-ftp-server-on-studentpc" class="md-nav__link">
+    Step 4 -  Enable the FTP Server on StudentPC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-enable-the-tech-support-export" class="md-nav__link">
+    Step 5 - Enable the Tech Support export
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-collect-tech-support-report" class="md-nav__link">
+    Step 6 - Collect Tech Support Report
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-check-export-status" class="md-nav__link">
+    Step 7 - Check Export status
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exporting-audit-logs" class="md-nav__link">
+    Exporting Audit Logs
+  </a>
+  
+    <nav class="md-nav" aria-label="Exporting Audit Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-ssh-to-apic" class="md-nav__link">
+    Step 1 - SSH to APIC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-redirect-output-to-a-text-file" class="md-nav__link">
+    Step 2 - Redirect Output to a Text File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-view-the-saved-log" class="md-nav__link">
+    Step 3 - View the saved log
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 - View the saved log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-and-example-output" class="md-nav__link">
+    Command and example output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -413,9 +679,115 @@
                   
                 
                 
-                <h1 id="export-tech-support">Export Tech Support<a class="headerlink" href="#export-tech-support" title="Permanent link">&para;</a></h1>
-<p>While ACI is now a mature technology, there are occaisions when you will need to contact Cisco TAC for support.  Its always a good idea to have your current configuration documented and ACI makes that very simple.  </p>
-<p>In Lab 07, we configured a remote location for daily backups and off-fabric snapshots.  We will use thei same remote FTP server to export what is the equivalent of show tech.</p>
+                <h1 id="export-tech-support-and-audit-logs">Export Tech Support and Audit Logs<a class="headerlink" href="#export-tech-support-and-audit-logs" title="Permanent link">&para;</a></h1>
+<p>While ACI is now a mature technology, there are occasions when you will need to contact Cisco TAC for support.  Its always a good idea to have your current configuration documented and ACI makes that very simple.  </p>
+<p>In Lab 07, we configured a remote location for daily backups and off-fabric snapshots.  We will use the same remote FTP server to export what is the equivalent of show tech.</p>
+<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
+<p>Generate and export on demand tech support  and audit log information.</p>
+<h4 id="step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc">Step 1 - Configure a remote location for the FTP service on your Student PC<a class="headerlink" href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc" title="Permanent link">&para;</a></h4>
+<p>Navigate to <strong>Admin &gt; Import/Export &gt; Remote Locations</strong>.  Right click on the <strong>Remote Locations</strong> folder icon and select <strong>Create Remote Location</strong>.</p>
+<p>Note: You will see some other remote locations that are used for loading the Cisco APIC configurations.</p>
+<p>Configure the properties of the Remote location.</p>
+<p>Name: Remote_MyLabPC</p>
+<p>IP Address: 192.168.10.15</p>
+<p>Protocol: FTP</p>
+<p>Credentials: admin/1234QWer</p>
+<p>Access: out-of-band</p>
+<p>Click Submit</p>
+<p><img alt="12_CreateRemoteLocation" src="../images/12_CreateRemoteLocation.jpg" /></p>
+<h5 id="step-2-review-the-two-types-of-tech-suport-export-policies-available-eon-the-apic">Step 2 - Review the two types of Tech Suport export policies available eon the APIC<a class="headerlink" href="#step-2-review-the-two-types-of-tech-suport-export-policies-available-eon-the-apic" title="Permanent link">&para;</a></h5>
+<p>Navigate to <strong>Admin &gt; Import/Export &gt; Export Policies</strong>.  Expand the Tech Support and On-Demand Tech Support menus.  You should see a policy default for each type.  You should also see additional menus for specialized Tech Support data.</p>
+<p>Tech Support allows you to schedule an export periodically.</p>
+<p>On-demand Tech Support, as you would expect, allows you to export on-demand.</p>
+<h5 id="step-3-verify-there-are-no-files-in-the-ftp-root-directory-on-your-student-pc">Step 3 - Verify there are no files in the FTP root directory on your Student PC<a class="headerlink" href="#step-3-verify-there-are-no-files-in-the-ftp-root-directory-on-your-student-pc" title="Permanent link">&para;</a></h5>
+<p>View the contents of the C:\ACI folder to confirm there are no files.</p>
+<h5 id="step-4-enable-the-ftp-server-on-studentpc">Step 4 -  Enable the FTP Server on StudentPC<a class="headerlink" href="#step-4-enable-the-ftp-server-on-studentpc" title="Permanent link">&para;</a></h5>
+<p>Start the 3CDaemon application on your StudentPC.  This will enable the FTP server.</p>
+<h5 id="step-5-enable-the-tech-support-export">Step 5 - Enable the Tech Support export<a class="headerlink" href="#step-5-enable-the-tech-support-export" title="Permanent link">&para;</a></h5>
+<p>Configure the On-demand Tech Support <strong>default</strong> policy to use the remote location defined in Step 1 and include information from all fabric nodes by leaving the Category check box checked (the default value) for <strong>All</strong> nodes.</p>
+<p>Click Submit</p>
+<h5 id="step-6-collect-tech-support-report">Step 6 - Collect Tech Support Report<a class="headerlink" href="#step-6-collect-tech-support-report" title="Permanent link">&para;</a></h5>
+<p>Click the tools symbol in the top-right corner, choose  Collect Tech Supports and then click Yes to confirm thee action</p>
+<h5 id="step-7-check-export-status">Step 7 - Check Export status<a class="headerlink" href="#step-7-check-export-status" title="Permanent link">&para;</a></h5>
+<p>Click on the Operational tab in the main panel to monitor export status.  After a few minutes, the Detail STatus should start changing from "Collecting tech support form nxos" to "Preparing the compress logs and export".  Once the status shows a check mark and the Detailed Status is "Task Completed"  its time to verity the export</p>
+<p>Step 8 Verify TechSupport Export on StudentPC</p>
+<p>On your StudentPC, check the contents of the C:\ACI folder.  It should contain a sub-directory (tsod-default) with the compressed exported gzipped tar files </p>
+<h4 id="exporting-audit-logs">Exporting Audit Logs<a class="headerlink" href="#exporting-audit-logs" title="Permanent link">&para;</a></h4>
+<p>Cisco ACI fabric accounting is handled by the same mechanism that handles faults and evens.  These two managed objects (MO) represent fabric accounting:</p>
+<p>aaaSessionLR</p>
+<ul>
+<li>This managed object tracks user account sessions (login/logout) on the APIC and switches</li>
+</ul>
+<p>aaaModLR</p>
+<ul>
+<li>This managed object tracks the changes made by users to objects.  If the AAA server is not pingable, it is marked as unavailable and a fault is seen.</li>
+<li>Both of these event logs are stored in the APIC shards.  Once the data exceeds the pre-set storage allocation size, it overwrites records on a first-in first-out basis</li>
+</ul>
+<p>The standard syslog, callhome, REST query, and CLI export mechanism are fully supported for queries to these two MOs , however, there is no default policy to export this data.</p>
+<p>For this the <strong>moquery</strong> CLI command must be used.</p>
+<h5 id="step-1-ssh-to-apic">Step 1 - SSH to APIC<a class="headerlink" href="#step-1-ssh-to-apic" title="Permanent link">&para;</a></h5>
+<p>Launch PUTTY from your StudentPC Desktop and connect to your Cisco APIC with the usual credentials. Use the moquery utility to display the aaaModLR audit logs (all objects of the class aaaModLR).  The process of retrieving and outputting will take several minutes so you may terminate the PUTTY window with Ctrl+C.</p>
+<div class="codehilite"><pre><span></span><code>apic1#moquery -c aaaModLR
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code>apic1#moquery -c aaaSessionLR
+</code></pre></div>
+
+
+<h5 id="step-2-redirect-output-to-a-text-file">Step 2 - Redirect Output to a Text File<a class="headerlink" href="#step-2-redirect-output-to-a-text-file" title="Permanent link">&para;</a></h5>
+<p>Redirect the audit log output to a text file (/tmp/AuditLogMod.txt).  It will take a few minutes to complete.  </p>
+<div class="codehilite"><pre><span></span><code>apic1# moquery -c aaaSessionLR &gt; /tmp/AuditLogSession.txt <span class="p">&amp;</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">29187</span>
+apic1# moquery -c aaaModLR &gt; /tmp/AuditLogMod.txt <span class="p">&amp;</span>
+<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="m">29605</span>
+apic1#
+<span class="o">[</span><span class="m">1</span><span class="o">]</span>  - <span class="k">done</span>       _exec_legacy_cmd <span class="s2">&quot;/controller/bin/moquery&quot;</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> -c aaaSessionLR &gt;
+apic1#
+<span class="o">[</span><span class="m">2</span><span class="o">]</span>  + <span class="k">done</span>       _exec_legacy_cmd <span class="s2">&quot;/controller/bin/moquery&quot;</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> -c aaaModLR &gt;
+apic1#
+</code></pre></div>
+
+
+<p>Note: including the ampersand (&amp;) at the end of the command allows the process to run in the background so you can continue to use the shell.</p>
+<p>Once the background processes are "done", you can check the size of the files</p>
+<div class="codehilite"><pre><span></span><code>apic1# ls -al /tmp/*.txt
+-rw-r--r-- <span class="m">1</span> admin admin <span class="m">411981</span> Aug <span class="m">14</span> <span class="m">21</span>:35 /tmp/AuditLogMod.txt
+-rw-r--r-- <span class="m">1</span> admin admin <span class="m">410710</span> Aug <span class="m">14</span> <span class="m">21</span>:35 /tmp/AuditLogSession.txt
+-rw-r--r-- <span class="m">1</span> root  root    <span class="m">2020</span> Aug <span class="m">14</span> <span class="m">21</span>:44 /tmp/standby-av-fixup-output.txt
+apic1#
+</code></pre></div>
+
+
+<h5 id="step-3-view-the-saved-log">Step 3 - View the saved log<a class="headerlink" href="#step-3-view-the-saved-log" title="Permanent link">&para;</a></h5>
+<p>In approximately 8 minutes you can view the audit log.  Normally, once the output is complete you would copy the file off the APIC to view.</p>
+<h6 id="command-and-example-output">Command and example output<a class="headerlink" href="#command-and-example-output" title="Permanent link">&para;</a></h6>
+<div class="codehilite"><pre><span></span><code>apic1# more /tmp/AuditLogSession.txt
+Total Objects shown: <span class="m">703</span>
+
+<span class="c1"># aaa.SessionLR</span>
+id           : <span class="m">4294967969</span>
+affected     : uni/userext/user-admin
+cause        : unknown
+changeSet    :
+childAction  :
+clientTag    :
+code         : generic
+created      : <span class="m">2020</span>-08-14T18:40:49.634+00:00
+descr        : From-192.168.10.40-client-type-REST-Success
+dn           : subj-<span class="o">[</span>uni/userext/user-admin<span class="o">]</span>/sess-4294967969
+ind          : special
+modTs        : never
+rn           : sess-4294967969
+sessionId    : <span class="nv">roRTGvO5SbiiorzyJcFT4w</span><span class="o">==</span>
+severity     : info
+status       :
+systemId     : <span class="m">1</span>
+trig         : refresh,session
+txId         : <span class="m">0</span>
+user         : admin
+--More--<span class="o">(</span><span class="m">0</span>%<span class="o">)</span>
+</code></pre></div>
                 
               
               

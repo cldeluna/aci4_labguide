@@ -382,6 +382,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#vpc-domain-vpc-protection-group" class="md-nav__link">
+    vPC Domain (vPC Protection Group)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#switch-policies" class="md-nav__link">
     Switch Policies
   </a>
@@ -724,6 +731,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#vpc-domain-vpc-protection-group" class="md-nav__link">
+    vPC Domain (vPC Protection Group)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#switch-policies" class="md-nav__link">
     Switch Policies
   </a>
@@ -887,7 +901,7 @@
         <td>A logical construct tying a vlan pool object to an AAEP</td>
     </tr>
     <tr>
-        <td>Attachable Access Entity Profile (AAEP)</td>
+        <td>Attachable Access Entity Profile (AAEP or AEP)</td>
         <td>An ACI object which groups physical and virtual domains for scalability.</td>
     </tr>
     <tr>
@@ -930,6 +944,7 @@
 <p>Select the <strong>Virtual Port Channel default</strong> object at the top level of <strong>Fabric &gt; Access Policies &gt; Policies &gt; Switch &gt; VPC Domain</strong></p>
 <p><img alt="vPC Protection Group Configured" src="../images/02_access_vpc_protgrp_configured.jpg" /></p>
 <p>In the Work Pane you can see that the two fabric leaf switches, Node IDs 102 and 103, are configured as a VPC "Protection Group" which is ACI's name for a vPC Domain.  The VPC Pair ID is 101 (as a best practice use the lowest Node ID number) and the fabric has automatically assigned the the vPC Domain an IP address from the TEP IP address block.</p>
+<h4 id="vpc-domain-vpc-protection-group">vPC Domain (vPC Protection Group)<a class="headerlink" href="#vpc-domain-vpc-protection-group" title="Permanent link">&para;</a></h4>
 <p>Configuring the vPC Domain is simple once you know where that configuration is done in the GUI.</p>
 <p><img alt="vPC Protection Group Configured" src="../images/02_access_vpc_protgrp_config_submit.jpg" /></p>
 <table>
@@ -967,7 +982,7 @@
 <p>When you want to configure a single interface on a specific leaf you will use the specific individual switch object.</p>
 <p>In our first example, we will configure a single access port on LEAF-2.</p>
 <p>Since the switches are abstracted, it is also possible to define an object that represents both switches.  When configuring a vPC or two access ports using the same port on each specific switch, this pair object can be used. </p>
-<p>In our second example we will associate the same port, e1/11, to the LEAFS_102_103_LeafProf Leaf Profile.  In one step or associate we have configured port e1/11 on both switches.  In this exercise port e1/11 will be configured as a vPC.</p>
+<p>In our second example we will associate the same port, e1/11, to the LEAFS_102_103_LeafProf Leaf Profile.  In one step we have configured port e1/11 on both switches.  In this exercise port e1/11 will be configured as a vPC.</p>
 <h2 id="configuring-vlan-pools-physical-domains-and-aaeps">Configuring Vlan Pools, Physical Domains, and AAEPs<a class="headerlink" href="#configuring-vlan-pools-physical-domains-and-aaeps" title="Permanent link">&para;</a></h2>
 <p>Before configuring physical interface characteristics, lets configure the objects which will define our Vlans (Vlan Pools), where the vlans can be trunked (AAEPs) and how they are associated to other objects (Domains).</p>
 <p><img alt="02_fabric_access_relationships-vlan-pydom-aep" src="../images/02_fabric_access_relationships-vlan-pydom-aep.jpg" /></p>

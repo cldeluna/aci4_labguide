@@ -319,6 +319,26 @@
     Step 2: Create a Bridge Domain and Subnets
   </a>
   
+    <nav class="md-nav" aria-label="Step 2: Create a Bridge Domain and Subnets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-21-create-bridge-domain" class="md-nav__link">
+    Step 2.1 - Create Bridge Domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-22-create-subnets" class="md-nav__link">
+    Step 2.2 - Create Subnets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -614,6 +634,26 @@
     Step 2: Create a Bridge Domain and Subnets
   </a>
   
+    <nav class="md-nav" aria-label="Step 2: Create a Bridge Domain and Subnets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-21-create-bridge-domain" class="md-nav__link">
+    Step 2.1 - Create Bridge Domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-22-create-subnets" class="md-nav__link">
+    Step 2.2 - Create Subnets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -856,16 +896,88 @@ All other values remain unchanged and at their default settings.</p>
 <p><img alt="03_addTenantVRF" src="../images/03_addTenantVRF.jpg" /></p>
 <p>Because this VRF was created within the Tenant context it is now associated with the Tenant.  </p>
 <h4 id="step-2-create-a-bridge-domain-and-subnets">Step 2: Create a Bridge Domain and Subnets<a class="headerlink" href="#step-2-create-a-bridge-domain-and-subnets" title="Permanent link">&para;</a></h4>
-<p>In traditional networking a Vlan inherently defines a broadcast domain, an encapsulation, and optionally a Layer 3 subnet.  We don't typically think of all of those items as separate functions but in ACI you must.  In its basic form, a Bridge Domain defines a broadcast domain as well as flooding behavior (we don't call this out specifically in traditional network because we don't have any other options, but in ACI we do).  ACI can optimize flooding behavior and reduce broadcasts and so a Bridge Domain allows you to define how you want flooding to behave for a particular Bridge Domain (BD).   It is also common to define a subnet within the Bridge Domain thereby creating the foundation for a Layer 3 "Vlan".  Notice that you don't define the encapsulation within the Bridge Domain. That takes place within an EPG either statically or dynamically depending on the need.  </p>
-<p>A Bridge Domain can have multiple subnets and contains settings which instantiate the subnet's gateway on the ACI Fabric.</p>
+<p>In traditional networking a Vlan inherently defines a broadcast domain, an encapsulation, and optionally a Layer 3 subnet.  </p>
+<p>We don't typically think of all of those items as separate functions but in ACI you must.  </p>
+<p>In its basic form, a Bridge Domain (BD) defines a broadcast domain as well as flooding behavior. We don't call this out specifically in traditional network because we don't have any other options for flooding behavior, but in ACI we do.  ACI can optimize flooding behavior and reduce broadcasts and so a Bridge Domain allows you to define how you want flooding to behave for a particular Bridge Domain.   </p>
+<p>It is also common to define a subnet within the Bridge Domain thereby creating the foundation for a Layer 3 "Vlan".  </p>
+<p>Notice that you don't define the encapsulation within the BD. That takes place within an EPG either statically or dynamically depending on the need and the associated  Domains (Physical, VMM).  </p>
+<p>A BD can have multiple subnets and contains settings which instantiate the subnet's gateway on the ACI Fabric.</p>
+<h5 id="step-21-create-bridge-domain">Step 2.1 - Create Bridge Domain<a class="headerlink" href="#step-21-create-bridge-domain" title="Permanent link">&para;</a></h5>
 <p>Navigate to <strong>Tenants &gt; PODXX_Tenant &gt; Networking &gt; Bridge Domains </strong> and right click on the <strong>Bridge Domain Folder</strong> icon.  Select <strong>Create Bridge Domain</strong> and the Create Bridge Domain dialog will appear.</p>
+<p>Name: PODXX_BD</p>
+<p>VRF:  PODXX_VRF (PODXX_Tenant)</p>
+<p>Forwarding: Cusom (change from the default Optimize)</p>
 <p><img alt="03_BD_CreateDialog" src="../images/03_BD_CreateDialog.jpg" /></p>
+<p>Select Custom in the Forwarding: drop down</p>
 <p><img alt="03_BD_CreateDialog2_Forwarding" src="../images/03_BD_CreateDialog2_Forwarding.jpg" /></p>
 <p><img alt="03_BD_CreateDialog3_Forwarding" src="../images/03_BD_CreateDialog3_Forwarding.jpg" /></p>
+<p>Click <strong>Next</strong></p>
+<h5 id="step-22-create-subnets">Step 2.2 - Create Subnets<a class="headerlink" href="#step-22-create-subnets" title="Permanent link">&para;</a></h5>
+<p>As with any data center it is important to consider the subnetting design.</p>
+<p>With ACI, taking a more network centric approach, each BD can be associated with one subnet, simulating what we are used to today.    One Bridge Domain, advertising one subnet and associated with one EPG and one encapsulation mimics an SVI in todays networking.</p>
+<p>In the Lab, we will model a more powerful approach, to give you a sense of what can be accomplished with the flexibility of ACI.</p>
+<p>In our design we will have one Bridge Domain, and within that BD we will instantiate the three subnets we require for our data center Virtual Machines.</p>
+<p>Subnet Design for POD##:</p>
+<table>
+<thead>
+<tr>
+<th>Subnet</th>
+<th>Gateway IP: (Anycast Gateway)*</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.0.1.0/24</td>
+<td>10.0.1.254/24</td>
+<td></td>
+</tr>
+<tr>
+<td>10.0.2.0/24</td>
+<td>10.0.2.254/24</td>
+<td></td>
+</tr>
+<tr>
+<td>10.0.3.0/24</td>
+<td>10.0.3.254/24</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>* Note: The Gateway IP: is exactly that, defining both the subnet and mask and the anycast gateway IP. (.254 for all subnets).</p>
+<p>Also, consider that each student is configuring the same subnets for their VMs.  This is possible because each student has their own Tenant and VRF.</p>
+<p>Click the plus (+) in the Subnets: table to add the three subnets in listed in the table.</p>
 <p><img alt="03_BD_CreateDialog4_Layer3" src="../images/03_BD_CreateDialog4_Layer3.jpg" /></p>
+<p>Leave all other settings at their default values and click <strong>OK</strong> to advance to the "Step 3 Troubleshooting" screen.</p>
 <p><img alt="03_BD_CreateDialog5_SubnetDialog" src="../images/03_BD_CreateDialog5_SubnetDialog.jpg" /></p>
+<p>Note the options for <strong>Scope:</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Scope:</th>
+<th>When to use...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Private to VRF (Default)</td>
+<td></td>
+</tr>
+<tr>
+<td>Advertised Externally</td>
+<td></td>
+</tr>
+<tr>
+<td>Share between vRF</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Click <strong>OK</strong></p>
 <p><img alt="03_BD_CreateDialog6_SubnetDialog" src="../images/03_BD_CreateDialog6_SubnetDialog.jpg" /></p>
+<p>Make no changes to the "STEP 3 &gt; Advanced/Troubleshooting" section and click <strong>Finish</strong>.</p>
 <p><img alt="03_BD_CreateDialog7_Advanced" src="../images/03_BD_CreateDialog7_Advanced.jpg" /></p>
+<p>Review the list of Bridge Domains.  You have configured a single BD in your tenant which contains three subnets.  The BD is configured to flood in the "classical" way rather than the optimized way ACI can also support.  </p>
 <p><img alt="03_BD_CreateDialog8_Completed" src="../images/03_BD_CreateDialog8_Completed.jpg" /></p>
 <h4 id="step-3-create-an-application-profile-and-epgs">Step 3: Create an Application Profile and EPGs<a class="headerlink" href="#step-3-create-an-application-profile-and-epgs" title="Permanent link">&para;</a></h4>
 <p>An Application Profile is on organizational or grouping construct only.  It is a container or folder for EPGs and their associations.</p>
