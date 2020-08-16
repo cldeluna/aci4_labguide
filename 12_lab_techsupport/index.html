@@ -440,9 +440,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc" class="md-nav__link">
-    Step 1 - Configure a remote location for the FTP service on your Student PC
+  <a href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc-for-techsupport-export" class="md-nav__link">
+    Step 1 - Configure a remote location for the FTP service on your Student PC for TechSupport Export
   </a>
+  
+    <nav class="md-nav" aria-label="Step 1 - Configure a remote location for the FTP service on your Student PC for TechSupport Export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-location-configuration-settings-table" class="md-nav__link">
+    Remote Location Configuration Settings Table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -615,9 +628,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc" class="md-nav__link">
-    Step 1 - Configure a remote location for the FTP service on your Student PC
+  <a href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc-for-techsupport-export" class="md-nav__link">
+    Step 1 - Configure a remote location for the FTP service on your Student PC for TechSupport Export
   </a>
+  
+    <nav class="md-nav" aria-label="Step 1 - Configure a remote location for the FTP service on your Student PC for TechSupport Export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-location-configuration-settings-table" class="md-nav__link">
+    Remote Location Configuration Settings Table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -754,10 +780,12 @@
 <p>Step 3 - View the saved log</p>
 <h2 id="collect-and-export-on-demand-tech-support_1">Collect and export on-demand Tech Support<a class="headerlink" href="#collect-and-export-on-demand-tech-support_1" title="Permanent link">&para;</a></h2>
 <p>Generate and export on demand tech support data.</p>
-<h4 id="step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc">Step 1 - Configure a remote location for the FTP service on your Student PC<a class="headerlink" href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc" title="Permanent link">&para;</a></h4>
+<p>Tip:  Make sure the account on your FTP server can upload and create directories.  </p>
+<h4 id="step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc-for-techsupport-export">Step 1 - Configure a remote location for the FTP service on your Student PC for TechSupport Export<a class="headerlink" href="#step-1-configure-a-remote-location-for-the-ftp-service-on-your-student-pc-for-techsupport-export" title="Permanent link">&para;</a></h4>
 <p>Navigate to <strong>Admin &gt; Import/Export &gt; Remote Locations</strong>.  Right click on the <strong>Remote Locations</strong> folder icon and select <strong>Create Remote Location</strong>.</p>
 <p>Note: You will see some other remote locations that are used for loading the Cisco APIC configurations.</p>
 <p>Configure the properties of the Remote location.</p>
+<h6 id="remote-location-configuration-settings-table">Remote Location Configuration Settings Table<a class="headerlink" href="#remote-location-configuration-settings-table" title="Permanent link">&para;</a></h6>
 <table>
 <thead>
 <tr>
@@ -776,7 +804,7 @@
 </tr>
 <tr>
 <td>Protocol:</td>
-<td>FTP</td>
+<td>ftp</td>
 </tr>
 <tr>
 <td>Credentials:</td>
@@ -788,6 +816,8 @@
 </tr>
 </tbody>
 </table>
+<p><img alt="12_CreateRemoteLocation-BlankDialog" src="../images/12_CreateRemoteLocation-BlankDialog.jpg" /></p>
+<p>Keep all other fields at their default values.</p>
 <p><img alt="12_CreateRemoteLocation" src="../images/12_CreateRemoteLocation.jpg" /></p>
 <p>Click <strong>Submit</strong></p>
 <h4 id="step-2-review-the-two-types-of-tech-suport-export-policies-available-eon-the-apic">Step 2 - Review the two types of Tech Suport export policies available eon the APIC<a class="headerlink" href="#step-2-review-the-two-types-of-tech-suport-export-policies-available-eon-the-apic" title="Permanent link">&para;</a></h4>
@@ -821,7 +851,7 @@
 <p>The standard syslog, callhome, REST query, and CLI export mechanism are fully supported for queries to these two MOs , however, there is no default policy to export this data.</p>
 <p>For this the <strong>moquery</strong> CLI command must be used.</p>
 <h4 id="step-1-ssh-to-apic">Step 1 - SSH to APIC<a class="headerlink" href="#step-1-ssh-to-apic" title="Permanent link">&para;</a></h4>
-<p>Launch PUTTY from your StudentPC Desktop and connect to your Cisco APIC with the usual credentials. Use the moquery utility to display the aaaModLR audit logs (all objects of the class aaaModLR).  The process of retrieving and outputting will take several minutes so you may terminate the PUTTY window with Ctrl+C.</p>
+<p>Launch PUTTY from your StudentPC Desktop and connect to your Cisco APIC with the usual credentials. Use the <strong>moquery</strong> utility to display the aaaModLR audit logs (all objects of the class aaaModLR).  The process of retrieving and outputting will take several minutes so you may terminate the PUTTY window with Ctrl+C.</p>
 <div class="codehilite"><pre><span></span><code>apic1#moquery -c aaaModLR
 </code></pre></div>
 

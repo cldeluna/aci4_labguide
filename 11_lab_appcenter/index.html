@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#lab-11-explore-cisco-dc-app-center-and-cisco-aci-optimize-feature" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -351,10 +356,127 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Lab 11 - App Center and ACI Optimize Feature
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Lab 11 - App Center and ACI Optimize Feature" class="md-nav__link md-nav__link--active">
       Lab 11 - App Center and ACI Optimize Feature
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-goals" class="md-nav__link">
+    Lab Goals
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab Goals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-check-for-applications" class="md-nav__link">
+    Step 1 - Check for Applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-load-app" class="md-nav__link">
+    Step 2 - Load App
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 - Load App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-21-upload-application" class="md-nav__link">
+    Step 2.1 Upload Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-22-enable-application" class="md-nav__link">
+    Step 2.2 Enable Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-23-control-access-via-security-domain-association" class="md-nav__link">
+    Step 2.3 Control Access via Security Domain Association
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-use-the-apic-managed-object-browser" class="md-nav__link">
+    Step 3 - Use the APIC Managed Object Browser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-explore-the-tools-in-the-base-package" class="md-nav__link">
+    Step 4 - Explore the Tools in the Base Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-use-the-endpoint-tracker" class="md-nav__link">
+    Step 5 - Use the Endpoint Tracker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-explore-network-assurance-engine-nae" class="md-nav__link">
+    Step 6 - Explore Network Assurance Engine (NAE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-explore-fault-analytics" class="md-nav__link">
+    Step 7 - Explore Fault Analytics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -378,6 +500,120 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-goals" class="md-nav__link">
+    Lab Goals
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab Goals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-check-for-applications" class="md-nav__link">
+    Step 1 - Check for Applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-load-app" class="md-nav__link">
+    Step 2 - Load App
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 - Load App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-21-upload-application" class="md-nav__link">
+    Step 2.1 Upload Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-22-enable-application" class="md-nav__link">
+    Step 2.2 Enable Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-23-control-access-via-security-domain-association" class="md-nav__link">
+    Step 2.3 Control Access via Security Domain Association
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-use-the-apic-managed-object-browser" class="md-nav__link">
+    Step 3 - Use the APIC Managed Object Browser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-explore-the-tools-in-the-base-package" class="md-nav__link">
+    Step 4 - Explore the Tools in the Base Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-use-the-endpoint-tracker" class="md-nav__link">
+    Step 5 - Use the Endpoint Tracker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-explore-network-assurance-engine-nae" class="md-nav__link">
+    Step 6 - Explore Network Assurance Engine (NAE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-explore-fault-analytics" class="md-nav__link">
+    Step 7 - Explore Fault Analytics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -391,9 +627,79 @@
                   
                 
                 
-                  <h1>Lab 11 - App Center and ACI Optimize Feature</h1>
-                
-                
+                <h1 id="lab-11-explore-cisco-dc-app-center-and-cisco-aci-optimize-feature">Lab 11 Explore Cisco DC App Center and Cisco ACI Optimize Feature<a class="headerlink" href="#lab-11-explore-cisco-dc-app-center-and-cisco-aci-optimize-feature" title="Permanent link">&para;</a></h1>
+<p>The Cisco DC App Center supports Cisco and Third Party add on applications for ACI and DCNM.</p>
+<p>Here are just a few examples of Apps Available for the ACI APIC.</p>
+<p><img alt="11_DCAppCenterFiltered4ACI" src="../images/11_DCAppCenterFiltered4ACI.jpg" /></p>
+<p>The App Center is a repository of Apps which build upon ACIs capabilities to enhance your Data Center fabric operations.</p>
+<p>The App Center is also supports developers who are building new apps to add to the repository.</p>
+<p>The Apps available via the App Center can be installed via the App Tab of your APIC GUI.</p>
+<p>Before you can download any apps you must sign in and accept the AppCenter EULA.</p>
+<h2 id="lab-goals">Lab Goals<a class="headerlink" href="#lab-goals" title="Permanent link">&para;</a></h2>
+<p>Familiarize yourself with uploading, installing, and using some handy Cisco and 3rd Party ACI add-on Apps.</p>
+<p>Step 1 - Check for Applications</p>
+<p>Step 2 - Load App(s)</p>
+<p>Step 3 - Use the APIC Managed Object Browser</p>
+<p>Step 4 - Explore the Tools in the Base Package</p>
+<p>Step 5 -  Use the Endpoint Tracker</p>
+<p>Step 6 - Explore Network Assurance Engine (NAE)</p>
+<p>Step 7 - Explore Fault Analytics</p>
+<h4 id="step-1-check-for-applications">Step 1 - Check for Applications<a class="headerlink" href="#step-1-check-for-applications" title="Permanent link">&para;</a></h4>
+<p>Navigate to the Apps menu and see if any applications have already been installed</p>
+<p>Upload Apps</p>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>Developer</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://dcappcenter.cisco.com/apic-managed-object-browser.html">APIC Managed Object Browser</a> (~154KB)</td>
+<td>Haystack Networks UK</td>
+<td>This application lets you browse the MO tree much like the APIC Object Browser (Visore) but in a graphical form.</td>
+</tr>
+<tr>
+<td><a href="https://dcappcenter.cisco.com/base-package.html">Base Package</a> (~306MB)</td>
+<td>Cisco Systems</td>
+<td>Cisco Application Base Package is a combination of the following apps:<br />- Search - Improved search features<br/>- APIC Postman - create, visualize and analyze the XML/JSON configuration that represents the actual logical model behind the API<br/>- Contract Viewer - view the traffic flowing between EPGs and their associated contracts<br/>- VisuDash - Customizable Top-n Views</td>
+</tr>
+<tr>
+<td><a href="https://dcappcenter.cisco.com/enhancedendpointtracker.html">Enhanced Endpoint Tracker</a> (~340MB)</td>
+<td>Cisco Systems</td>
+<td>This application maintains a list and log of endpoints.  It is one of the original ACI Apps and is a must have for operations.</td>
+</tr>
+<tr>
+<td><a href="https://dcappcenter.cisco.com/faultanalytics.html">Fault Analytics</a></td>
+<td>Cisco  Systems</td>
+<td>Analyze historical Faults and Configuration changes via the Audit Logs</td>
+</tr>
+<tr>
+<td>Network Assurance Engine (~3.1GB)</td>
+<td>Cisco Systems</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-2-load-app">Step 2 - Load App<a class="headerlink" href="#step-2-load-app" title="Permanent link">&para;</a></h4>
+<p>If one or more of the Apps have not been loaded follow these steps to upload an app to the APIC.</p>
+<h5 id="step-21-upload-application">Step 2.1 Upload Application<a class="headerlink" href="#step-21-upload-application" title="Permanent link">&para;</a></h5>
+<p>Navigate to Apps &gt; Apps and click the Upload Application button on the grey menu band.</p>
+<p>Click Browse in the Upload App Dialog and go to the file share c:\10.10.1.40Z:\ACI\App-Center and choose the App file (<app name>.aci)</p>
+<p>Click Submit to upload the application</p>
+<p>Note: Upload and Installation can take up to 5 minutes</p>
+<h5 id="step-22-enable-application">Step 2.2 Enable Application<a class="headerlink" href="#step-22-enable-application" title="Permanent link">&para;</a></h5>
+<p>Enable the application by clicking the Enable button.  </p>
+<h5 id="step-23-control-access-via-security-domain-association">Step 2.3 Control Access via Security Domain Association<a class="headerlink" href="#step-23-control-access-via-security-domain-association" title="Permanent link">&para;</a></h5>
+<p>Allow access to the security domain all in each case.  </p>
+<p>Note:  You can see how simple it would be to restrict access by creating specific security domains and using them to restrict or allow access.</p>
+<h4 id="step-3-use-the-apic-managed-object-browser">Step 3 - Use the APIC Managed Object Browser<a class="headerlink" href="#step-3-use-the-apic-managed-object-browser" title="Permanent link">&para;</a></h4>
+<h4 id="step-4-explore-the-tools-in-the-base-package">Step 4 - Explore the Tools in the Base Package<a class="headerlink" href="#step-4-explore-the-tools-in-the-base-package" title="Permanent link">&para;</a></h4>
+<h4 id="step-5-use-the-endpoint-tracker">Step 5 - Use the Endpoint Tracker<a class="headerlink" href="#step-5-use-the-endpoint-tracker" title="Permanent link">&para;</a></h4>
+<h4 id="step-6-explore-network-assurance-engine-nae">Step 6 - Explore Network Assurance Engine (NAE)<a class="headerlink" href="#step-6-explore-network-assurance-engine-nae" title="Permanent link">&para;</a></h4>
+<h4 id="step-7-explore-fault-analytics">Step 7 - Explore Fault Analytics<a class="headerlink" href="#step-7-explore-fault-analytics" title="Permanent link">&para;</a></h4>
                 
               
               
